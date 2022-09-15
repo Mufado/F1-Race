@@ -7,9 +7,11 @@ int main()
 {
     sf::Window window(sf::VideoMode::getDesktopMode(), "My window", sf::Style::Default);
     
-    double r, g, b;
+    float red = 0.2f;
+    float green = 0.3f;
+    float blue = 0.3f;
 
-    r = g = b = 0.2;
+    glClearColor(red, green, blue, 1.0f);
 
     while (window.isOpen())
     {
