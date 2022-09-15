@@ -7,8 +7,6 @@ int main()
     sf::Window window(sf::VideoMode::getDesktopMode(), "My window", sf::Style::Default);
 
     window.setSize(sf::Vector2u(800, 600));
-
-    std::cout << "Hello World" << std::endl;
     
     // run the program as long as the window is open
     while (window.isOpen())
