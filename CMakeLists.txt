@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.10)
 project(F1_Race VERSION 1.0 LANGUAGES C CXX)
 
+message(STATUS "Project: ${PROJECT_NAME} (version ${CMAKE_PROJECT_VERSION})")
+message(STATUS "Build Type: ${CMAKE_BUILD_TYPE}")
+message(STATUS "CMake Generator: ${CMAKE_GENERATOR}")
+
 include(FetchContent)
 
 set(CMAKE_CXX_STANDARD 11) 
