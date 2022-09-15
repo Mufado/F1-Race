@@ -11,7 +11,6 @@ int main()
 
     r = g = b = 0.2;
 
-    // run the program as long as the window is open
     while (window.isOpen())
     {
         sf::Event event;
@@ -21,9 +20,10 @@ int main()
             {
                 case sf::Event::Closed:
                     window.close();
-                    break;    
+                    break;  
                 case sf::Event::KeyPressed:
-                    keyboard_handler(event);
+                    keyboard_handler(event, &window);
+
             }
         }
 

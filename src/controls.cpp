@@ -1,9 +1,12 @@
 #include <controls.hpp>
 
-void keyboard_handler(sf::Event event)
+void keyboard_handler(sf::Event event, sf::Window *window)
 {
     switch(event.key.code)
         {
+            case sf::Keyboard::Escape:
+                window->close();
+                break;
             case sf::Keyboard::W:
                 glClearColor(1.0, 0.0, 0.0, 1.0);
                 break;
