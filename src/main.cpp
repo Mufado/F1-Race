@@ -2,6 +2,7 @@
 #include <SFML/Window/VideoMode.hpp>
 
 #include <controls.hpp>
+#include <context_draw.hpp>
 
 int main()
 {
@@ -26,6 +27,8 @@ int main()
 
             }
         }
+
+        ortho_init();
 
         glClearColor(red, green, blue, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
