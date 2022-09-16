@@ -5,7 +5,7 @@
 
 int main()
 {
-    sf::Window window(sf::VideoMode::getDesktopMode(), "My window", sf::Style::Default);
+    sf::Window window(sf::VideoMode::getDesktopMode(), "F1_Race", sf::Style::Default);
     
     float red = 0.2f;
     float green = 0.3f;
