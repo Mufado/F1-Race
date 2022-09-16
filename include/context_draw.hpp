@@ -7,3 +7,13 @@
 void project_init();
 
 void perspective_init(sf::Window *);
+
+void draw_context();
+
+void draw_sky();
+
+void draw_highway();
+
+void draw_opponents();
+
+void draw_car();

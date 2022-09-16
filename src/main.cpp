@@ -3,6 +3,8 @@
 
 #include <controls.hpp>
 #include <context_draw.hpp>
+#include <camera.hpp>
+#include <object.hpp>
 
 int main()
 {
@@ -29,7 +31,7 @@ int main()
 
             }
         }
-        
+
         glClearColor(red, green, blue, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 

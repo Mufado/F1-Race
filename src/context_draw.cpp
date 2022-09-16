@@ -19,3 +19,34 @@ void perspective_init(sf::Window *window)
 
     glLoadMatrixf(glm::value_ptr(proj_mat));
 }; 
+
+void draw_context()
+{
+    draw_sky();
+
+    draw_highway();
+
+    draw_opponents();
+
+    draw_car();
+}
+
+void draw_sky()
+{
+
+}
+
+void draw_highway()
+{
+
+}
+
+void draw_opponents()
+{
+
+}
+
+void draw_car()
+{
+
+}
