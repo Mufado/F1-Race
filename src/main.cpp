@@ -12,6 +12,8 @@ int main()
     float green = 0.3f;
     float blue = 0.3f;
 
+    project_init();
+
     while (window.isOpen())
     {
         sf::Event event;
@@ -27,11 +29,11 @@ int main()
 
             }
         }
-
-        ortho_init();
-
+        
         glClearColor(red, green, blue, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+        perspective_init(&window);
 
         window.display();
     }
