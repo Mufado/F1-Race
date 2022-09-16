@@ -11,8 +11,6 @@ int main()
     float green = 0.3f;
     float blue = 0.3f;
 
-    glClearColor(red, green, blue, 1.0f);
-
     while (window.isOpen())
     {
         sf::Event event;
@@ -29,6 +27,7 @@ int main()
             }
         }
 
+        glClearColor(red, green, blue, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
         window.display();
