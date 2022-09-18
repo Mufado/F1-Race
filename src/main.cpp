@@ -9,8 +9,7 @@
 int main()
 {
     sf::Window window(sf::VideoMode::getDesktopMode(), "F1_Race", sf::Style::Default);
-    
-    glm::fvec3 rgb_color(0.2f, 0.3f, 0.3f);
+    sf::Vector2u window_size = window.getSize();
 
     project_init();
 
@@ -32,8 +31,9 @@ int main()
             }
         }
 
-        glClearColor(rgb_color.x, rgb_color.y, rgb_color.z, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glViewport(0, 0, window_size.x, window_size.y);
+
+        load_buffers();
 
         perspective_init(&window);
 

@@ -4,7 +4,11 @@
 #include <SFML/OpenGL.hpp>
 #include <glm/ext.hpp>
 
+const glm::fvec3 background_color(0.2f, 0.3f, 0.3f);
+
 void project_init();
+
+void load_buffers();
 
 void perspective_init(sf::Window *);
 

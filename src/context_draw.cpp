@@ -5,6 +5,12 @@ void project_init()
     glEnable(GL_DEPTH_TEST);
 }
 
+void load_buffers()
+{
+    glClearColor(background_color.x, background_color.y, background_color.z, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+}
+
 void perspective_init(sf::Window *window)
 {
     sf::Vector2u windows_size = window->getSize();
