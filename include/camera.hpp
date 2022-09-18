@@ -5,7 +5,11 @@
 
 typedef struct
 {
-   glm::fvec3 position; 
+   glm::fvec3 eye; 
+   glm::fvec3 at;
+   glm::fvec3 up;
 } Camera;
 
-void set_camera_pos(glm::fvec3);
+void start_camera(Camera);
+
+void load_camera(Camera);

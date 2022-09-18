@@ -24,6 +24,8 @@ void draw_context()
 {
     draw_sky();
 
+    draw_terrain();
+
     draw_highway();
 
     draw_opponents();
@@ -34,6 +36,11 @@ void draw_context()
 void draw_sky()
 {
 
+}
+
+void draw_terrain()
+{
+    
 }
 
 void draw_highway()

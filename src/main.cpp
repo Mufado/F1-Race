@@ -10,11 +10,12 @@ int main()
 {
     sf::Window window(sf::VideoMode::getDesktopMode(), "F1_Race", sf::Style::Default);
     
-    float red = 0.2f;
-    float green = 0.3f;
-    float blue = 0.3f;
+    glm::fvec3 rgb_color(0.2f, 0.3f, 0.3f);
 
     project_init();
+
+    Camera main_camera;
+    start_camera(main_camera);
 
     while (window.isOpen())
     {
@@ -31,10 +32,12 @@ int main()
             }
         }
 
-        glClearColor(red, green, blue, 1.0f);
+        glClearColor(rgb_color.x, rgb_color.y, rgb_color.z, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         perspective_init(&window);
+
+        load_camera(main_camera);
 
         draw_context();
 
