@@ -10,7 +10,7 @@ int main()
 {
     sf::Window window(sf::VideoMode::getDesktopMode(), "F1_Race", sf::Style::Default);
 
-    project_init();
+    project_init(&window);
 
     Camera main_camera;
     start_camera(main_camera);
