@@ -9,7 +9,6 @@
 int main()
 {
     sf::Window window(sf::VideoMode::getDesktopMode(), "F1_Race", sf::Style::Default);
-    sf::Vector2u window_size = window.getSize();
 
     project_init();
 
@@ -30,10 +29,6 @@ int main()
                     keyboard_handler(event, &window);
             }
         }
-
-        glViewport(0, 0, window_size.x, window_size.y);
-
-        load_buffers();
 
         perspective_init(&window);
 

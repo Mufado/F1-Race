@@ -13,8 +13,13 @@ void load_buffers()
 
 void perspective_init(sf::Window *window)
 {
-    sf::Vector2u windows_size = window->getSize();
-    float aspect_ratio = (float) (windows_size.x / windows_size.y);
+    window_size = window->getSize();
+
+    glViewport(0, 0, window_size.x, window_size.y);
+
+    load_buffers();
+
+    float aspect_ratio = (float) (window_size.x / window_size.y);
 
     glm::mat4 idt_mat = glm::mat4(1.0);
     glLoadMatrixf(glm::value_ptr(idt_mat));
