@@ -6,6 +6,8 @@
 
 #include <glm/ext.hpp>
 
+#define MESHES_FILEPATH "../../../assets/meshes/"
+
 typedef struct
 {
     glm::fvec3 position;

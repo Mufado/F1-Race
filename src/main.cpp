@@ -28,7 +28,6 @@ int main()
                     break;  
                 case sf::Event::KeyPressed:
                     keyboard_handler(event, &window);
-
             }
         }
 
@@ -36,6 +35,8 @@ int main()
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         perspective_init(&window);
+
+        draw_context();
 
         window.display();
     }
