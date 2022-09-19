@@ -14,15 +14,15 @@ void fullscreen_controller(sf::Window *window)
     }
 }
 
-void keyboard_handler(sf::Event event, sf::Window *window)
+void keyboard_handler(sf::Event event, Game game)
 {
     switch(event.key.code)
         {
             case sf::Keyboard::Escape:
-                window->close();
+                game.window->close();
                 break;
             case sf::Keyboard::F11:
-                fullscreen_controller(window);
+                fullscreen_controller(game.window);
                 break;
             case sf::Keyboard::W:
                 

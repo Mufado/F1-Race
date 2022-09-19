@@ -6,9 +6,9 @@ void load_buffers()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
-void perspective_init(sf::Window *window)
+void perspective_init(Game game)
 {
-    window_size = window->getSize();
+    window_size = game.window->getSize();
 
     glViewport(0, 0, window_size.x, window_size.y);
 

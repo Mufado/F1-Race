@@ -1,8 +1,8 @@
 #pragma once
 
-#include <SFML/Window/Window.hpp>
-#include <SFML/Window/VideoMode.hpp>
-#include <SFML/Window/Event.hpp>
-#include <SFML/OpenGL.hpp>
+#include <object.hpp>
 
-#include <glm/ext.hpp>
+#include <camera.hpp>
+#include <game.hpp>
+#include <controls.hpp>
+#include <context_draw.hpp>

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <game_init.hpp>
+#include <libs_init.hpp>
 
 typedef struct
 {

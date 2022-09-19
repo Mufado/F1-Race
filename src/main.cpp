@@ -1,4 +1,4 @@
-#include <game.hpp>
+#include <game_init.hpp>
 
 int main()
 {
@@ -9,28 +9,28 @@ int main()
 
     project_init(main_game);
 
-    while (window.isOpen())
+    while (main_game.window->isOpen())
     {
         sf::Event event;
-        while (window.pollEvent(event))
+        while (main_game.window->pollEvent(event))
         {
             switch (event.type)
             {
                 case sf::Event::Closed:
-                    window.close();
+                    main_game.window->close();
                     break;  
                 case sf::Event::KeyPressed:
-                    keyboard_handler(event, &window);
+                    keyboard_handler(event, main_game);
             }
         }
 
-        perspective_init(&window);
+        perspective_init(main_game);
 
         //load_camera(main_camera);
 
         draw_context();
 
-        window.display();
+        main_game.window->display();
     }
 
     return 0;
