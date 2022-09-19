@@ -3,7 +3,7 @@
 #include <libs_init.hpp>
 #include <camera.hpp>
 
-#define DEFAULT_COLOR glm::fvec4(0.2f, 0.5f, 0.3f, 1.0f)
+#define DEFAULT_COLOR glm::fvec4(0.4f, 0.4f, 0.4f, 1.0f)
 #define DEBUG_COLOR glm::fvec4(0.3f, 0.3f, 0.3f, 1.0f)
 
 #define DEFAULT_AXIS_SIZE 40.0f

@@ -82,12 +82,30 @@ void global_axis(float axis_size)
         glVertex3f(0.0f, 0.0f, 0.0f);
         glVertex3f(0.0f, 0.0f, -axis_size);
     glEnd();
+}
 
+void camera_sight(Camera *camera)
+{
+    //Vertical strip
+    glColor3f(0.0f, 0.0f, 0.0f);
+    glBegin(GL_LINES);
+        glVertex3f(camera->at.x, camera->at.y + 0.02f, camera->at.z);
+        glVertex3f(camera->at.x, camera->at.y - 0.02f, camera->at.z);
+    glEnd();
+
+    //Horizontal strip
+    glColor3f(0.0f, 0.0f, 0.0f);
+    glBegin(GL_LINES);
+        glVertex3f(camera->at.x - 0.02f, camera->at.y, camera->at.z);
+        glVertex3f(camera->at.x + 0.02f, camera->at.y, camera->at.z);
+    glEnd();
 }
 
 void draw_debug_context(Game *game)
 {
     global_axis(game->axis_size);
+
+    camera_sight(&game->camera);
 }
 
 void draw_sky()
