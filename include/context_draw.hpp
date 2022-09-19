@@ -3,8 +3,6 @@
 #include <libs_init.hpp>
 #include <game.hpp>
 
-const  glm::fvec3 background_color(0.2f, 0.3f, 0.3f);
-
 void load_viewport(Game game);
 
 void perspective_init(Game game);
