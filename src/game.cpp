@@ -1,9 +1,9 @@
 #include <game.hpp>
 
-void project_init(Game game)
+void project_init(Game *game)
 {
-    game.window->setFramerateLimit(60);
-    game.window->setKeyRepeatEnabled(true);
+    game->window->setFramerateLimit(60);
+    game->window->setKeyRepeatEnabled(true);
 
     glEnable(GL_DEPTH_TEST);
     
@@ -11,5 +11,5 @@ void project_init(Game game)
     glPointSize(10.f);
     glLineWidth(5.f);
 
-    start_camera(game.camera);
+    start_camera(game->camera);
 }

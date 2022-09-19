@@ -1,20 +1,20 @@
 #include <context_draw.hpp>
 
-void load_viewport(Game game)
+void load_viewport(Game *game)
 {
-    glViewport(0, 0, game.window_size.x, game.window_size.y);
+    game->window_size = game->window->getSize();
 
-    glClearColor(game.background_color.x, game.background_color.y, game.background_color.z, game.background_color.w);
+    glViewport(0, 0, game->window_size.x, game->window_size.y);
+
+    glClearColor(game->background_color.x, game->background_color.y, game->background_color.z, game->background_color.w);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
-void perspective_init(Game game)
+void perspective_init(Game *game)
 {
-    game.window_size = game.window->getSize();
-
     load_viewport(game);
 
-    float aspect_ratio = float(game.window_size.x) / float(game.window_size.y);
+    float aspect_ratio = float(game->window_size.x) / float(game->window_size.y);
 
     glm::mat4 idt_mat = glm::mat4(1.0);
     glLoadMatrixf(glm::value_ptr(idt_mat));

@@ -3,9 +3,9 @@
 #include <libs_init.hpp>
 #include <game.hpp>
 
-void load_viewport(Game game);
+void load_viewport(Game *game);
 
-void perspective_init(Game game);
+void perspective_init(Game *game);
 
 void draw_context();
 
