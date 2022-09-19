@@ -29,7 +29,7 @@ int main()
 
         load_camera(&main_game.camera);
 
-        draw_context();
+        draw_context(&main_game);
 
         main_game.window->display();
     }

@@ -3,11 +3,13 @@
 #include <libs_init.hpp>
 #include <game.hpp>
 
-void load_viewport(Game *game);
+void load_viewport(Game *);
 
-void perspective_init(Game *game);
+void perspective_init(Game *);
 
-void draw_context();
+void draw_context(Game *);
+
+void draw_debug_context(Game *);
 
 void draw_sky();
 

@@ -17,6 +17,16 @@ void fullscreen_controller(Game *game)
         game->window->create(sf::VideoMode::getDesktopMode(), "F1_Race", sf::Style::Default);
 }
 
+void axis_size_controller(Game *game)
+{
+    game->reduced_axis = !game->reduced_axis;
+
+    if (!game->reduced_axis)
+        game->axis_size = DEFAULT_AXIS_SIZE;
+    else
+        game->axis_size = REDUCED_AXIS_SIZE;
+}
+
 void keyboard_handler(sf::Event event, Game *game)
 {
     switch (event.key.code)
@@ -62,11 +72,14 @@ void keyboard_handler(sf::Event event, Game *game)
                 break;
             case sf::Keyboard::LShift:
             case sf::Keyboard::RShift:
-                game->camera.eye.z++;
+                game->camera.eye.z--;  
                 break;
             case sf::Keyboard::LControl:
             case sf::Keyboard::RControl:
-                game->camera.eye.z--;
+                game->camera.eye.z++;
+                break;
+            case sf::Keyboard::X:
+                axis_size_controller(game);
                 break;
         }   
     }
