@@ -10,4 +10,6 @@ void project_init(Game game)
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     glPointSize(10.f);
     glLineWidth(5.f);
+
+    start_camera(game.camera);
 }

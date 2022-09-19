@@ -2,7 +2,7 @@
 
 void start_camera(Camera camera)
 {
-    camera.eye = glm::fvec3(0.0f, 1.5f, 0.0f);
+    camera.eye = glm::fvec3(3.0f, 3.0f, 3.0f);
     camera.at  = glm::fvec3(0.0f, 0.0f, 0.0f);
     camera.up  = glm::fvec3(0.0f, 1.0f, 0.0f); 
 }

@@ -10,6 +10,7 @@
 typedef struct 
 {
     sf::Window *window;
+    Camera camera;
 } Game;
 
-void project_init(Game game);
+void project_init(Game);

@@ -9,9 +9,6 @@ int main()
 
     project_init(main_game);
 
-    Camera main_camera;
-    start_camera(main_camera);
-
     while (window.isOpen())
     {
         sf::Event event;
