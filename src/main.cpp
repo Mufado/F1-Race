@@ -1,10 +1,7 @@
 #include <SFML/Window.hpp>
 #include <SFML/Window/VideoMode.hpp>
 
-#include <controls.hpp>
-#include <context_draw.hpp>
-#include <camera.hpp>
-#include <object.hpp>
+#include <game.hpp>
 
 int main()
 {
@@ -32,7 +29,7 @@ int main()
 
         perspective_init(&window);
 
-        load_camera(main_camera);
+        //load_camera(main_camera);
 
         draw_context();
 

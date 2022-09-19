@@ -33,7 +33,7 @@ void perspective_init(sf::Window *window)
 
     glMatrixMode(GL_PROJECTION);
 
-    glm::mat4 proj_mat = glm::perspective(60.f, aspect_ratio, 1.f, 1000.f);
+    glm::mat4 proj_mat = glm::perspective(60.0f, aspect_ratio, 0.1f, 500.0f);
 
     glLoadMatrixf(glm::value_ptr(proj_mat));
 }; 
@@ -58,7 +58,12 @@ void draw_sky()
 
 void draw_terrain()
 {
-    
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glBegin(GL_TRIANGLES);
+        glVertex3f(1.0f, 0.0f, -1.0f);
+        glVertex3f(2.0f, -1.0f, -1.0f);
+        glVertex3f(3.0f, 0.0f, -1.0f);
+    glEnd();
 }
 
 void draw_highway()
