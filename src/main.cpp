@@ -1,43 +1,37 @@
-#include <SFML/Window.hpp>
-#include <SFML/Window/VideoMode.hpp>
-
-#include <controls.hpp>
-#include <context_draw.hpp>
-#include <camera.hpp>
-#include <object.hpp>
+#include <game_init.hpp>
 
 int main()
 {
+    Game main_game;
+
     sf::Window window(sf::VideoMode::getDesktopMode(), "F1_Race", sf::Style::Default);
-    
-    float red = 0.2f;
-    float green = 0.3f;
-    float blue = 0.3f;
+    main_game.window = &window;
 
-    project_init();
+    project_init(&main_game);
 
-    while (window.isOpen())
+    while (main_game.window->isOpen())
     {
         sf::Event event;
-        while (window.pollEvent(event))
+        while (main_game.window->pollEvent(event))
         {
             switch (event.type)
             {
                 case sf::Event::Closed:
-                    window.close();
+                    main_game.window->close();
                     break;  
                 case sf::Event::KeyPressed:
-                    keyboard_handler(event, &window);
-
+                    keyboard_handler(event, &main_game);
+                    break;
             }
         }
 
-        glClearColor(red, green, blue, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        perspective_init(&main_game);
 
-        perspective_init(&window);
+        //load_camera(main_camera);
 
-        window.display();
+        draw_context();
+
+        main_game.window->display();
     }
 
     return 0;

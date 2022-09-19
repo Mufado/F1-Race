@@ -1,40 +1,75 @@
 #include <controls.hpp>
 
-void fullscreen_controller(sf::Window *window)
+void debug_controller(Game *game)
 {
-    if (!fullscreen)
-    {
-        window->create(sf::VideoMode::getDesktopMode(), "F1_Race", sf::Style::Fullscreen);
-        fullscreen = !fullscreen;
-    }
-    else
-    {
-        window->create(sf::VideoMode::getDesktopMode(), "F1_Race", sf::Style::Default);
-        fullscreen = !fullscreen;
-    }
+    game->debug_mode = !game->debug_mode;
+
+    //Some cool stuff's coming ... ;)
 }
 
-void keyboard_handler(sf::Event event, sf::Window *window)
+void fullscreen_controller(Game *game)
 {
-    switch(event.key.code)
+    game->fullscreen = !game->fullscreen;
+
+    if (game->fullscreen)
+        game->window->create(sf::VideoMode::getDesktopMode(), "F1_Race", sf::Style::Fullscreen);
+    else
+        game->window->create(sf::VideoMode::getDesktopMode(), "F1_Race", sf::Style::Default);
+}
+
+void keyboard_handler(sf::Event event, Game *game)
+{
+    switch (event.key.code)
+    {
+        case sf::Keyboard::Escape:
+            game->window->close();
+            break;
+        case sf::Keyboard::F11:
+            fullscreen_controller(game);
+            break;
+        case sf::Keyboard::W:
+
+            break;
+        case sf::Keyboard::A:
+
+            break;
+        case sf::Keyboard::S:
+
+            break;
+        case sf::Keyboard::D:
+
+            break;
+        case sf::Keyboard::B:
+            debug_controller(game);
+    }
+
+    if(game->debug_mode)
+    {
+        game->background_color = DEBUG_COLOR;
+        switch (event.key.code)
         {
-            case sf::Keyboard::Escape:
-                window->close();
-                break;
-            case sf::Keyboard::F11:
-                fullscreen_controller(window);
-                break;
-            case sf::Keyboard::W:
+            case sf::Keyboard::Up:
                 
                 break;
-            case sf::Keyboard::A:
+            case sf::Keyboard::Down:
                 
                 break;
-            case sf::Keyboard::S:
-                
+            case sf::Keyboard::Left:
+
                 break;
-            case sf::Keyboard::D:
-                
+            case sf::Keyboard::Right:
+
                 break;
-        }
+            case sf::Keyboard::LShift:
+            case sf::Keyboard::RShift:
+
+                break;
+            case sf::Keyboard::LControl:
+            case sf::Keyboard::RControl:
+
+                break;
+        }   
+    }
+    else
+        game->background_color = DEFAULT_COLOR;
 }

@@ -1,16 +1,17 @@
 #pragma once
 
-#include <SFML/Window/Window.hpp>
-#include <SFML/OpenGL.hpp>
-#include <glm/ext.hpp>
+#include <libs_init.hpp>
+#include <game.hpp>
 
-void project_init();
+void load_viewport(Game *game);
 
-void perspective_init(sf::Window *);
+void perspective_init(Game *game);
 
 void draw_context();
 
 void draw_sky();
+
+void draw_terrain();
 
 void draw_highway();
 

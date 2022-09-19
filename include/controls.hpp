@@ -1,12 +1,10 @@
 #pragma once
 
-#include <SFML/Window/Window.hpp>
-#include <SFML/Window/VideoMode.hpp>
-#include <SFML/Window/Event.hpp>
-#include <SFML/OpenGL.hpp>
+#include <libs_init.hpp>
+#include <game.hpp>
 
-static bool fullscreen = false;
+void debug_controller(Game *);
 
-void fullscreen_controller(sf::Window *);
+void fullscreen_controller(Game *);
 
-void keyboard_handler(sf::Event, sf::Window *);
+void keyboard_handler(sf::Event, Game*);

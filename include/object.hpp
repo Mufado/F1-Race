@@ -4,7 +4,9 @@
 #include <string>
 #include <fstream>
 
-#include <glm/ext.hpp>
+#include <libs_init.hpp>
+
+#define MESHES_FILEPATH "../../../assets/meshes/"
 
 typedef struct
 {
