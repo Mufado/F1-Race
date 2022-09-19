@@ -3,10 +3,9 @@
 #include <libs_init.hpp>
 #include <game.hpp>
 
-static sf::Vector2u window_size;
 const  glm::fvec3 background_color(0.2f, 0.3f, 0.3f);
 
-void load_buffers();
+void load_viewport(Game game);
 
 void perspective_init(Game game);
 

@@ -8,13 +8,13 @@ void load_buffers()
 
 void perspective_init(Game game)
 {
-    window_size = game.window->getSize();
+    game.window_size = game.window->getSize();
 
-    glViewport(0, 0, window_size.x, window_size.y);
+    glViewport(0, 0, game.window_size.x, game.window_size.y);
 
     load_buffers();
 
-    float aspect_ratio = (float) (window_size.x / window_size.y);
+    float aspect_ratio = float(game.window_size.x) / float(game.window_size.y);
 
     glm::mat4 idt_mat = glm::mat4(1.0);
     glLoadMatrixf(glm::value_ptr(idt_mat));

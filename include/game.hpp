@@ -7,6 +7,10 @@ typedef struct
 {
     sf::Window *window;
     Camera camera;
+
+    sf::Vector2u window_size;
+
+    bool debug_mode = false;
 } Game;
 
 void project_init(Game);
