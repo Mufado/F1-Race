@@ -12,9 +12,9 @@ void fullscreen_controller(Game *game)
     game->fullscreen = !game->fullscreen;
 
     if (game->fullscreen)
-        game->window->create(sf::VideoMode::getDesktopMode(), "F1_Race", sf::Style::Fullscreen);
+        game->window->create(sf::VideoMode::getDesktopMode(), "F1_Race", sf::Style::Fullscreen, game->window_settings);
     else
-        game->window->create(sf::VideoMode::getDesktopMode(), "F1_Race", sf::Style::Default);
+        game->window->create(sf::VideoMode::getDesktopMode(), "F1_Race", sf::Style::Default, game->window_settings);
 }
 
 void axis_size_controller(Game *game)

@@ -6,8 +6,8 @@
 #define DEFAULT_COLOR glm::fvec4(0.4f, 0.4f, 0.4f, 1.0f)
 #define DEBUG_COLOR glm::fvec4(0.3f, 0.3f, 0.3f, 1.0f)
 
-#define DEFAULT_AXIS_SIZE 40.0f
-#define REDUCED_AXIS_SIZE 10.0f
+#define DEFAULT_AXIS_SIZE 45.0f
+#define REDUCED_AXIS_SIZE 15.0f
 
 typedef struct 
 {
@@ -15,6 +15,7 @@ typedef struct
 
     sf::Window *window;
     sf::Vector2u window_size;
+    sf::ContextSettings window_settings;
 
     glm::fvec4 background_color = DEFAULT_COLOR;
 
@@ -24,5 +25,7 @@ typedef struct
 
     float axis_size = DEFAULT_AXIS_SIZE;
 } Game;
+
+void load_window_setting(Game *);
 
 void project_init(Game *);

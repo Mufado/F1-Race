@@ -28,9 +28,6 @@ void perspective_init(Game *game)
 
 void draw_context(Game *game)
 {
-    if(game->debug_mode)
-        draw_debug_context(game);
-
     draw_sky();
 
     draw_terrain();
@@ -40,6 +37,9 @@ void draw_context(Game *game)
     draw_opponents();
 
     draw_car();
+
+    if (game->debug_mode)
+        draw_debug_context(game);
 }
 
 void global_axis(float axis_size)
@@ -82,6 +82,12 @@ void global_axis(float axis_size)
         glVertex3f(0.0f, 0.0f, 0.0f);
         glVertex3f(0.0f, 0.0f, -axis_size);
     glEnd();
+
+    //Origin
+    glColor3f(0.0f, 0.0f, 0.0f);
+    glBegin(GL_POINTS);
+        glVertex3f(0.0f, 0.0f, 0.0f);
+    glEnd();
 }
 
 void camera_sight(Camera *camera)
@@ -115,17 +121,20 @@ void draw_sky()
 
 void draw_terrain()
 {
-    glColor3f(1.0f, 1.0f, 1.0f);
+    glColor3f(0.14f, 0.6f, 0.14f);
     glBegin(GL_QUADS);
-        glVertex3f(0.0f, 0.0f, 0.0f);
-        glVertex3f(2.0f, 0.0f, 0.0f);
-        glVertex3f(2.0f, 0.0f, -2.0f);
-        glVertex3f(0.0f, 0.0f, -2.0f);
+        glVertex3f(-15.0f, 0.0f, -15.0f);
+        glVertex3f(15.0f, 0.0f, -15.0f);
+        glVertex3f(15.0f, 0.0f, 15.0f);
+        glVertex3f(-15.0f, 0.0f, 15.0f);
     glEnd();
 
     glColor3f(0.0f, 0.0f, 0.0f);
-    glBegin(GL_POINTS);
-        glVertex3f(0.0f, 0.0f, 0.0f);
+    glBegin(GL_LINE_LOOP);
+        glVertex3f(-15.0f, 0.0f, -15.0f);
+        glVertex3f(15.0f, 0.0f, -15.0f);
+        glVertex3f(15.0f, 0.0f, 15.0f);
+        glVertex3f(-15.0f, 0.0f, 15.0f);
     glEnd();
 }
 

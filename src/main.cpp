@@ -4,7 +4,9 @@ int main()
 {
     Game main_game;
 
-    sf::Window window(sf::VideoMode::getDesktopMode(), "F1_Race", sf::Style::Default);
+    load_window_setting(&main_game);
+    sf::Window window(sf::VideoMode::getDesktopMode(), "F1_Race", sf::Style::Default, main_game.window_settings);
+    
     main_game.window = &window;
 
     project_init(&main_game);
