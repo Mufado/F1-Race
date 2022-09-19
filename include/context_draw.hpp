@@ -1,8 +1,6 @@
 #pragma once
 
-#include <SFML/Window/Window.hpp>
-#include <SFML/OpenGL.hpp>
-#include <glm/ext.hpp>
+#include <game_init.hpp>
 
 static sf::Vector2u window_size;
 const  glm::fvec3 background_color(0.2f, 0.3f, 0.3f);

@@ -1,6 +1,3 @@
-#include <SFML/Window.hpp>
-#include <SFML/Window/VideoMode.hpp>
-
 #include <game.hpp>
 
 int main()

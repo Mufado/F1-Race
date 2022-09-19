@@ -1,9 +1,6 @@
 #pragma once
 
-#include <SFML/Window/Window.hpp>
-#include <SFML/Window/VideoMode.hpp>
-#include <SFML/Window/Event.hpp>
-#include <SFML/OpenGL.hpp>
+#include <game_init.hpp>
 
 static bool fullscreen = false;
 

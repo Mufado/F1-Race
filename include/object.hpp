@@ -4,7 +4,7 @@
 #include <string>
 #include <fstream>
 
-#include <glm/ext.hpp>
+#include <game_init.hpp>
 
 #define MESHES_FILEPATH "../../../assets/meshes/"
 

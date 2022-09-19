@@ -1,7 +1,6 @@
 #pragma once
 
-#include <SFML/OpenGL.hpp>
-#include <glm/ext.hpp>
+#include <game_init.hpp>
 
 typedef struct
 {
