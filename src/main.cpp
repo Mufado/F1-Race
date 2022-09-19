@@ -2,9 +2,12 @@
 
 int main()
 {
-    sf::Window window(sf::VideoMode::getDesktopMode(), "F1_Race", sf::Style::Default);
+    Game main_game;
 
-    project_init(&window);
+    sf::Window window(sf::VideoMode::getDesktopMode(), "F1_Race", sf::Style::Default);
+    main_game.window = &window;
+
+    project_init(main_game);
 
     Camera main_camera;
     start_camera(main_camera);

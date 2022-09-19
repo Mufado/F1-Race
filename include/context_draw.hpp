@@ -5,8 +5,6 @@
 static sf::Vector2u window_size;
 const  glm::fvec3 background_color(0.2f, 0.3f, 0.3f);
 
-void project_init(sf::Window *window);
-
 void load_buffers();
 
 void perspective_init(sf::Window *);

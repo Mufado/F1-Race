@@ -9,5 +9,7 @@
 
 typedef struct 
 {
-
+    sf::Window *window;
 } Game;
+
+void project_init(Game game);

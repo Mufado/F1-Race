@@ -1,17 +1,5 @@
 #include <context_draw.hpp>
 
-void project_init(sf::Window *window)
-{
-    window->setFramerateLimit(60);
-    window->setKeyRepeatEnabled(true);
-
-    glEnable(GL_DEPTH_TEST);
-    
-    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-    glPointSize(10.f);
-    glLineWidth(5.f);
-}
-
 void load_buffers()
 {
     glClearColor(background_color.x, background_color.y, background_color.z, 1.0f);
