@@ -11,5 +11,5 @@ void project_init(Game *game)
     glPointSize(10.f);
     glLineWidth(5.f);
 
-    start_camera(game->camera);
+    start_camera(&game->camera);
 }

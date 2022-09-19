@@ -27,7 +27,7 @@ int main()
 
         perspective_init(&main_game);
 
-        //load_camera(main_camera);
+        load_camera(&main_game.camera);
 
         draw_context();
 

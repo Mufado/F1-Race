@@ -9,6 +9,6 @@ typedef struct
    glm::fvec3 up;
 } Camera;
 
-void start_camera(Camera);
+void start_camera(Camera *);
 
-void load_camera(Camera);
+void load_camera(Camera *);
