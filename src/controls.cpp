@@ -49,24 +49,24 @@ void keyboard_handler(sf::Event event, Game *game)
         switch (event.key.code)
         {
             case sf::Keyboard::Up:
-                
+                game->camera.eye.y++;
                 break;
             case sf::Keyboard::Down:
-                
-                break;
-            case sf::Keyboard::Left:
-
+                game->camera.eye.y--;
                 break;
             case sf::Keyboard::Right:
-
+                game->camera.eye.x++;
+                break;
+            case sf::Keyboard::Left:
+                game->camera.eye.x--;
                 break;
             case sf::Keyboard::LShift:
             case sf::Keyboard::RShift:
-
+                game->camera.eye.z++;
                 break;
             case sf::Keyboard::LControl:
             case sf::Keyboard::RControl:
-
+                game->camera.eye.z--;
                 break;
         }   
     }
