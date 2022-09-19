@@ -1,15 +1,15 @@
 #include <controls.hpp>
 
-void fullscreen_controller(sf::Window *window)
+void fullscreen_controller(Game game)
 {
     if (!fullscreen)
     {
-        window->create(sf::VideoMode::getDesktopMode(), "F1_Race", sf::Style::Fullscreen);
+        game.window->create(sf::VideoMode::getDesktopMode(), "F1_Race", sf::Style::Fullscreen);
         fullscreen = !fullscreen;
     }
     else
     {
-        window->create(sf::VideoMode::getDesktopMode(), "F1_Race", sf::Style::Default);
+        game.window->create(sf::VideoMode::getDesktopMode(), "F1_Race", sf::Style::Default);
         fullscreen = !fullscreen;
     }
 }
@@ -22,7 +22,7 @@ void keyboard_handler(sf::Event event, Game game)
                 game.window->close();
                 break;
             case sf::Keyboard::F11:
-                fullscreen_controller(game.window);
+                fullscreen_controller(game);
                 break;
             case sf::Keyboard::W:
                 
