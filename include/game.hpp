@@ -1,6 +1,5 @@
 #pragma once
 
-#include <libs_init.hpp>
 #include <camera.hpp>
 
 #define DEFAULT_COLOR glm::fvec4(0.53f, 0.81f, 0.92f, 1.0f)

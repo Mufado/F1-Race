@@ -1,6 +1,5 @@
 #pragma once
 
-#include <libs_init.hpp>
 #include <game.hpp>
 
 #define SIGTH_WIDTH 2.0f
