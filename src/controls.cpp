@@ -19,12 +19,7 @@ void fullscreen_controller(Game *game)
 
 void axis_size_controller(Game *game)
 {
-    game->reduced_axis = !game->reduced_axis;
-
-    if (!game->reduced_axis)
-        game->axis_size = DEFAULT_AXIS_SIZE;
-    else
-        game->axis_size = REDUCED_AXIS_SIZE;
+    game->cartesian = !game->cartesian;
 }
 
 void keyboard_handler(sf::Event event, Game *game)
