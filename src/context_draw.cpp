@@ -92,6 +92,8 @@ void global_axis(float axis_size)
 
 void camera_sight(Camera *camera)
 {
+    glLineWidth(2.f);
+    
     //Vertical strip
     glColor3f(0.0f, 0.0f, 0.0f);
     glBegin(GL_LINES);
@@ -105,6 +107,8 @@ void camera_sight(Camera *camera)
         glVertex3f(camera->at.x - 0.02f, camera->at.y, camera->at.z);
         glVertex3f(camera->at.x + 0.02f, camera->at.y, camera->at.z);
     glEnd();
+
+    glLineWidth(5.f);
 }
 
 void draw_debug_context(Game *game)
