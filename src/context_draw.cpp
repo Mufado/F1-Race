@@ -44,6 +44,8 @@ void draw_context(Game *game)
 
 void global_axis(float axis_size)
 {
+    glLineWidth(5.f);
+
     //X Axis
     glColor3f(1.0f, 0.0f, 0.0f);
     glBegin(GL_LINES);
@@ -82,6 +84,8 @@ void global_axis(float axis_size)
         glVertex3f(0.0f, 0.0f, 0.0f);
         glVertex3f(0.0f, 0.0f, -axis_size);
     glEnd();
+    
+    glPointSize(15.f);
 
     //Origin
     glColor3f(0.0f, 0.0f, 0.0f);
@@ -92,23 +96,22 @@ void global_axis(float axis_size)
 
 void camera_sight(Camera *camera)
 {
-    glLineWidth(2.f);
+    //Adjust sight width
+    glLineWidth(SIGTH_WIDTH);
     
     //Vertical strip
     glColor3f(0.0f, 0.0f, 0.0f);
     glBegin(GL_LINES);
-        glVertex3f(camera->at.x, camera->at.y + 0.02f, camera->at.z);
-        glVertex3f(camera->at.x, camera->at.y - 0.02f, camera->at.z);
+        glVertex3f(camera->at.x, camera->at.y + SIGHT_SIZE, camera->at.z);
+        glVertex3f(camera->at.x, camera->at.y - SIGHT_SIZE, camera->at.z);
     glEnd();
 
     //Horizontal strip
     glColor3f(0.0f, 0.0f, 0.0f);
     glBegin(GL_LINES);
-        glVertex3f(camera->at.x - 0.02f, camera->at.y, camera->at.z);
-        glVertex3f(camera->at.x + 0.02f, camera->at.y, camera->at.z);
+        glVertex3f(camera->at.x - SIGHT_SIZE, camera->at.y, camera->at.z);
+        glVertex3f(camera->at.x + SIGHT_SIZE, camera->at.y, camera->at.z);
     glEnd();
-
-    glLineWidth(5.f);
 }
 
 void draw_debug_context(Game *game)
@@ -125,6 +128,8 @@ void draw_sky()
 
 void draw_terrain()
 {
+    glLineWidth(5.f);
+
     glColor3f(0.14f, 0.6f, 0.14f);
     glBegin(GL_QUADS);
         glVertex3f(-15.0f, 0.0f, -15.0f);

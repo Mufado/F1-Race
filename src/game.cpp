@@ -2,7 +2,7 @@
 
 void load_window_setting(Game *game)
 {
-    game->window_settings.depthBits         = 24;
+    game->window_settings.depthBits         = 32;
     game->window_settings.stencilBits       =  8;
     game->window_settings.antialiasingLevel =  4;
     game->window_settings.majorVersion      =  3;
@@ -18,8 +18,6 @@ void project_init(Game *game)
     glEnable(GL_DEPTH_TEST);
     
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-    glPointSize(10.f);
-    glLineWidth(5.f);
 
     start_camera(&game->camera);
 }
