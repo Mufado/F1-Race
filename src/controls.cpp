@@ -19,7 +19,7 @@ void fullscreen_controller(Game *game)
 
 void axis_size_controller(Game *game)
 {
-    game->cartesian = !game->cartesian;
+    game->degub_tools = !game->degub_tools;
 }
 
 void keyboard_handler(sf::Event event, Game *game)

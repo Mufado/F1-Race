@@ -51,39 +51,39 @@ void global_axis()
     glColor3f(1.0f, 0.0f, 0.0f);
     glBegin(GL_LINES);
         glVertex3f(0.0f, 0.0f, 0.0f);
-        glVertex3f(TERRAIN_SIZE, 0.0f, 0.0f);
+        glVertex3f(AXIS_SIZE, 0.0f, 0.0f);
     glEnd();
 
     glColor3f(0.5f, 0.0f, 0.0f);
     glBegin(GL_LINES);
         glVertex3f(0.0f, 0.0f, 0.0f);
-        glVertex3f(-TERRAIN_SIZE, 0.0f, 0.0f);
+        glVertex3f(-AXIS_SIZE, 0.0f, 0.0f);
     glEnd();
 
     //Y Axis
     glColor3f(0.0f, 1.0f, 0.0f);
     glBegin(GL_LINES);
         glVertex3f(0.0f, 0.0f, 0.0f);
-        glVertex3f(0.0f, TERRAIN_SIZE, 0.0f);
+        glVertex3f(0.0f, AXIS_SIZE, 0.0f);
     glEnd();
 
     glColor3f(0.0f, 0.5f, 0.0f);
     glBegin(GL_LINES);
         glVertex3f(0.0f, 0.0f, 0.0f);
-        glVertex3f(0.0f, -TERRAIN_SIZE, 0.0f);
+        glVertex3f(0.0f, -AXIS_SIZE, 0.0f);
     glEnd();
 
     //Z Axis
     glColor3f(0.0f, 0.0f, 1.0f);
     glBegin(GL_LINES);
         glVertex3f(0.0f, 0.0f, 0.0f);
-        glVertex3f(0.0f, 0.0f, TERRAIN_SIZE);
+        glVertex3f(0.0f, 0.0f, AXIS_SIZE);
     glEnd();
 
     glColor3f(0.0f, 0.0f, 0.5f);
     glBegin(GL_LINES);
         glVertex3f(0.0f, 0.0f, 0.0f);
-        glVertex3f(0.0f, 0.0f, -TERRAIN_SIZE);
+        glVertex3f(0.0f, 0.0f, -AXIS_SIZE);
     glEnd();
     
     glPointSize(12.5f);
@@ -100,15 +100,16 @@ void camera_sight(Camera *camera)
     //Adjust sight width
     glLineWidth(SIGTH_WIDTH);
     
+    //Sight color
+    glColor3f(SIGHT_COLOR.x, SIGHT_COLOR.y, SIGHT_COLOR.z);
+
     //Vertical strip
-    glColor3f(0.0f, 0.0f, 0.0f);
     glBegin(GL_LINES);
         glVertex3f(camera->at.x, camera->at.y + SIGHT_SIZE, camera->at.z);
         glVertex3f(camera->at.x, camera->at.y - SIGHT_SIZE, camera->at.z);
     glEnd();
 
     //Horizontal strip
-    glColor3f(0.0f, 0.0f, 0.0f);
     glBegin(GL_LINES);
         glVertex3f(camera->at.x - SIGHT_SIZE, camera->at.y, camera->at.z);
         glVertex3f(camera->at.x + SIGHT_SIZE, camera->at.y, camera->at.z);
@@ -117,10 +118,11 @@ void camera_sight(Camera *camera)
 
 void draw_debug_context(Game *game)
 {
-    if(game->cartesian)
+    if(game->degub_tools)
+    { 
         global_axis();
-
-    camera_sight(&game->camera);
+        camera_sight(&game->camera);
+    }
 }
 
 void draw_sky()
@@ -132,29 +134,33 @@ void draw_terrain()
 {
     glColor3f(0.14f, 0.6f, 0.14f);
     glBegin(GL_QUADS);
-        glVertex3f(-TERRAIN_SIZE, 0.0f, -TERRAIN_SIZE);
+        glVertex3f(-TERRAIN_SIZE, 0.0f, 0.0f);
+        glVertex3f( TERRAIN_SIZE, 0.0f, 0.0f);
         glVertex3f( TERRAIN_SIZE, 0.0f, -TERRAIN_SIZE);
-        glVertex3f( TERRAIN_SIZE, 0.0f,  TERRAIN_SIZE);
-        glVertex3f(-TERRAIN_SIZE, 0.0f,  TERRAIN_SIZE);
+        glVertex3f(-TERRAIN_SIZE, 0.0f, -TERRAIN_SIZE);
     glEnd();
 
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
     glColor3f(0.0f, 0.0f, 0.0f);
-    glBegin(GL_LINE_LOOP);
-        glVertex3f(-TERRAIN_SIZE, 0.0f, -TERRAIN_SIZE);
+    glBegin(GL_QUADS);
+        glVertex3f(-TERRAIN_SIZE, 0.0f, 0.0f);
+        glVertex3f( TERRAIN_SIZE, 0.0f, 0.0f);
         glVertex3f( TERRAIN_SIZE, 0.0f, -TERRAIN_SIZE);
-        glVertex3f( TERRAIN_SIZE, 0.0f,  TERRAIN_SIZE);
-        glVertex3f(-TERRAIN_SIZE, 0.0f,  TERRAIN_SIZE);
+        glVertex3f(-TERRAIN_SIZE, 0.0f, -TERRAIN_SIZE);
     glEnd();
+
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 }
 
 void draw_highway()
 {
     glColor3f(0.185f, 0.185f, 0.185f);
     glBegin(GL_QUADS);
-        glVertex3f(-HIGHWAY_WIDTH, 0.0f, -TERRAIN_SIZE);
+        glVertex3f(-HIGHWAY_WIDTH, 0.0f,  0.0f);
+        glVertex3f( HIGHWAY_WIDTH, 0.0f,  0.0f);
         glVertex3f( HIGHWAY_WIDTH, 0.0f, -TERRAIN_SIZE);
-        glVertex3f( HIGHWAY_WIDTH, 0.0f,  TERRAIN_SIZE);
-        glVertex3f(-HIGHWAY_WIDTH, 0.0f,  TERRAIN_SIZE);
+        glVertex3f(-HIGHWAY_WIDTH, 0.0f, -TERRAIN_SIZE);
     glEnd();
 }
 

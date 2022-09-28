@@ -17,7 +17,7 @@ typedef struct
 
     boolean fullscreen   = false;
     boolean debug_mode   = false;
-    boolean cartesian    = true;
+    boolean degub_tools    = true;
 } Game;
 
 void load_window_setting(Game *);

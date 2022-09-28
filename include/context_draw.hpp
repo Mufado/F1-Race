@@ -2,10 +2,7 @@
 
 #include <game.hpp>
 
-#define TERRAIN_SIZE  100.0f
-#define HIGHWAY_WIDTH   3.0f
-#define SIGTH_WIDTH     2.0f
-#define SIGHT_SIZE      0.3f
+#include <macros.hpp>
 
 void load_viewport(Game *);
 
