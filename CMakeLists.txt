@@ -46,11 +46,9 @@ add_executable(
 
 #compiler w-flag's handler
 if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-  # using Clang
+  set_source_files_properties(${SRCS} PROPERTIES COMPILE_OPTIONS "-Wno-unused-result")
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     set_source_files_properties(${SRCS} PROPERTIES COMPILE_OPTIONS "-Wno-unused-result")
-elseif (CMAKE_CXX_COMPILER_ID STREQUAL "Intel")
-  # using Intel C++
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     set_source_files_properties(${SRCS} PROPERTIES COMPILE_OPTIONS "/wd0219") #Warning CS0219 (unused result)
 endif()
@@ -62,6 +60,7 @@ target_link_libraries(
     sfml-system
     sfml-graphics
     sfml-window
+    sfml-audio
     glm::glm
 )
 
