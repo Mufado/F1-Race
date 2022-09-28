@@ -79,5 +79,8 @@ void keyboard_handler(sf::Event event, Game *game)
         }   
     }
     else
+    {
         game->background_color = DEFAULT_COLOR;
+        start_camera(&game->camera);
+    }
 }
