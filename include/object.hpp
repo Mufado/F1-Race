@@ -11,6 +11,8 @@
 typedef struct
 {
     glm::fvec3 position;
+    glm::fvec3 normal_vector;
+    glm::fvec2 texture_coordinate;
 } Vertex;
 
 typedef struct
