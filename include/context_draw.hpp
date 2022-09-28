@@ -1,7 +1,8 @@
 #pragma once
 
-#include <libs_init.hpp>
 #include <game.hpp>
+
+#include <macros.hpp>
 
 void load_viewport(Game *);
 

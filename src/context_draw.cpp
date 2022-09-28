@@ -28,6 +28,9 @@ void perspective_init(Game *game)
 
 void draw_context(Game *game)
 {
+    //Set default line width
+    glLineWidth(5.f);
+    
     draw_sky();
 
     draw_terrain();
@@ -42,46 +45,48 @@ void draw_context(Game *game)
         draw_debug_context(game);
 }
 
-void global_axis(float axis_size)
+void global_axis()
 {
     //X Axis
     glColor3f(1.0f, 0.0f, 0.0f);
     glBegin(GL_LINES);
         glVertex3f(0.0f, 0.0f, 0.0f);
-        glVertex3f(axis_size, 0.0f, 0.0f);
+        glVertex3f(AXIS_SIZE, 0.0f, 0.0f);
     glEnd();
 
     glColor3f(0.5f, 0.0f, 0.0f);
     glBegin(GL_LINES);
         glVertex3f(0.0f, 0.0f, 0.0f);
-        glVertex3f(-axis_size, 0.0f, 0.0f);
+        glVertex3f(-AXIS_SIZE, 0.0f, 0.0f);
     glEnd();
 
     //Y Axis
     glColor3f(0.0f, 1.0f, 0.0f);
     glBegin(GL_LINES);
         glVertex3f(0.0f, 0.0f, 0.0f);
-        glVertex3f(0.0f, axis_size, 0.0f);
+        glVertex3f(0.0f, AXIS_SIZE, 0.0f);
     glEnd();
 
     glColor3f(0.0f, 0.5f, 0.0f);
     glBegin(GL_LINES);
         glVertex3f(0.0f, 0.0f, 0.0f);
-        glVertex3f(0.0f, -axis_size, 0.0f);
+        glVertex3f(0.0f, -AXIS_SIZE, 0.0f);
     glEnd();
 
     //Z Axis
     glColor3f(0.0f, 0.0f, 1.0f);
     glBegin(GL_LINES);
         glVertex3f(0.0f, 0.0f, 0.0f);
-        glVertex3f(0.0f, 0.0f, axis_size);
+        glVertex3f(0.0f, 0.0f, AXIS_SIZE);
     glEnd();
 
     glColor3f(0.0f, 0.0f, 0.5f);
     glBegin(GL_LINES);
         glVertex3f(0.0f, 0.0f, 0.0f);
-        glVertex3f(0.0f, 0.0f, -axis_size);
+        glVertex3f(0.0f, 0.0f, -AXIS_SIZE);
     glEnd();
+    
+    glPointSize(12.5f);
 
     //Origin
     glColor3f(0.0f, 0.0f, 0.0f);
@@ -92,30 +97,32 @@ void global_axis(float axis_size)
 
 void camera_sight(Camera *camera)
 {
-    glLineWidth(2.f);
+    //Adjust sight width
+    glLineWidth(SIGTH_WIDTH);
     
+    //Sight color
+    glColor3f(SIGHT_COLOR.x, SIGHT_COLOR.y, SIGHT_COLOR.z);
+
     //Vertical strip
-    glColor3f(0.0f, 0.0f, 0.0f);
     glBegin(GL_LINES);
-        glVertex3f(camera->at.x, camera->at.y + 0.02f, camera->at.z);
-        glVertex3f(camera->at.x, camera->at.y - 0.02f, camera->at.z);
+        glVertex3f(camera->at.x, camera->at.y + SIGHT_SIZE, camera->at.z);
+        glVertex3f(camera->at.x, camera->at.y - SIGHT_SIZE, camera->at.z);
     glEnd();
 
     //Horizontal strip
-    glColor3f(0.0f, 0.0f, 0.0f);
     glBegin(GL_LINES);
-        glVertex3f(camera->at.x - 0.02f, camera->at.y, camera->at.z);
-        glVertex3f(camera->at.x + 0.02f, camera->at.y, camera->at.z);
+        glVertex3f(camera->at.x - SIGHT_SIZE, camera->at.y, camera->at.z);
+        glVertex3f(camera->at.x + SIGHT_SIZE, camera->at.y, camera->at.z);
     glEnd();
-
-    glLineWidth(5.f);
 }
 
 void draw_debug_context(Game *game)
 {
-    global_axis(game->axis_size);
-
-    camera_sight(&game->camera);
+    if(game->degub_tools)
+    { 
+        global_axis();
+        camera_sight(&game->camera);
+    }
 }
 
 void draw_sky()
@@ -127,24 +134,34 @@ void draw_terrain()
 {
     glColor3f(0.14f, 0.6f, 0.14f);
     glBegin(GL_QUADS);
-        glVertex3f(-15.0f, 0.0f, -15.0f);
-        glVertex3f(15.0f, 0.0f, -15.0f);
-        glVertex3f(15.0f, 0.0f, 15.0f);
-        glVertex3f(-15.0f, 0.0f, 15.0f);
+        glVertex3f(-TERRAIN_SIZE, 0.0f, 0.0f);
+        glVertex3f( TERRAIN_SIZE, 0.0f, 0.0f);
+        glVertex3f( TERRAIN_SIZE, 0.0f, -TERRAIN_SIZE);
+        glVertex3f(-TERRAIN_SIZE, 0.0f, -TERRAIN_SIZE);
     glEnd();
 
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
     glColor3f(0.0f, 0.0f, 0.0f);
-    glBegin(GL_LINE_LOOP);
-        glVertex3f(-15.0f, 0.0f, -15.0f);
-        glVertex3f(15.0f, 0.0f, -15.0f);
-        glVertex3f(15.0f, 0.0f, 15.0f);
-        glVertex3f(-15.0f, 0.0f, 15.0f);
+    glBegin(GL_QUADS);
+        glVertex3f(-TERRAIN_SIZE, 0.0f, 0.0f);
+        glVertex3f( TERRAIN_SIZE, 0.0f, 0.0f);
+        glVertex3f( TERRAIN_SIZE, 0.0f, -TERRAIN_SIZE);
+        glVertex3f(-TERRAIN_SIZE, 0.0f, -TERRAIN_SIZE);
     glEnd();
+
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 }
 
 void draw_highway()
 {
-
+    glColor3f(0.185f, 0.185f, 0.185f);
+    glBegin(GL_QUADS);
+        glVertex3f(-HIGHWAY_WIDTH, 0.0f,  0.0f);
+        glVertex3f( HIGHWAY_WIDTH, 0.0f,  0.0f);
+        glVertex3f( HIGHWAY_WIDTH, 0.0f, -TERRAIN_SIZE);
+        glVertex3f(-HIGHWAY_WIDTH, 0.0f, -TERRAIN_SIZE);
+    glEnd();
 }
 
 void draw_opponents()

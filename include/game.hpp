@@ -1,13 +1,9 @@
 #pragma once
 
-#include <libs_init.hpp>
 #include <camera.hpp>
 
-#define DEFAULT_COLOR glm::fvec4(0.4f, 0.4f, 0.4f, 1.0f)
+#define DEFAULT_COLOR glm::fvec4(0.53f, 0.81f, 0.92f, 1.0f)
 #define DEBUG_COLOR glm::fvec4(0.3f, 0.3f, 0.3f, 1.0f)
-
-#define DEFAULT_AXIS_SIZE 45.0f
-#define REDUCED_AXIS_SIZE 15.0f
 
 typedef struct 
 {
@@ -19,11 +15,9 @@ typedef struct
 
     glm::fvec4 background_color = DEFAULT_COLOR;
 
-    boolean fullscreen = false;
-    boolean debug_mode = false;
-    boolean reduced_axis = false;
-
-    float axis_size = DEFAULT_AXIS_SIZE;
+    boolean fullscreen   = false;
+    boolean debug_mode   = false;
+    boolean degub_tools    = true;
 } Game;
 
 void load_window_setting(Game *);
