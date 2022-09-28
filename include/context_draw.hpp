@@ -2,8 +2,6 @@
 
 #include <game.hpp>
 
-#include <macros.hpp>
-
 void load_viewport(Game *);
 
 void perspective_init(Game *);

@@ -6,3 +6,5 @@
 #include <SFML/OpenGL.hpp>
 
 #include <glm/ext.hpp>
+
+#include <macros.hpp>

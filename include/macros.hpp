@@ -1,10 +1,17 @@
 #pragma once
-#include <glm/ext.hpp>
+#include <libs_init.hpp>
+
+//Object Module Macros
+#define MESHES_FILEPATH "../../../assets/meshes/"
+
+//Game Module Macros
+#define DEFAULT_COLOR glm::fvec4(0.53f, 0.81f, 0.92f, 1.0f)
+#define DEBUG_COLOR   glm::fvec4(0.3f, 0.3f, 0.3f, 1.0f)
 
 //Draw Module Macros
 #define TERRAIN_SIZE  200.0f
-#define AXIS_SIZE     TERRAIN_SIZE
 #define HIGHWAY_WIDTH 3.0f
+#define AXIS_SIZE     TERRAIN_SIZE
 
 //Camera Module Macros
 #define SIGTH_LINE_WIDTH  3.0f
