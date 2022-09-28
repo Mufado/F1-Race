@@ -1,17 +1,15 @@
 #include <camera.hpp>
 
-#include <macros.hpp>
-
 void start_camera(Camera *camera)
 {
-    camera->eye = glm::fvec3(0.0f, CAM_HEIGHT, 0.0f);
-    camera->at  = glm::fvec3(camera->eye.x, (camera->eye.y) - CAM_HEIGHT, (camera->eye.z) - TERRAIN_SIZE);
-    camera->up  = glm::fvec3(0.0f, CAM_HEIGHT, 0.0F); 
+    camera->eye = glm::fvec3(0.0f, CAM_VIEW.x, 0.0f);
+    camera->at  = glm::fvec3(camera->eye.x, (camera->eye.y) - CAM_VIEW.x, (camera->eye.z) - CAM_VIEW.y);
+    camera->up  = CAM_UP_AXIS; 
 }
 
 void load_camera(Camera *camera)
 {
-    camera->at = glm::fvec3(camera->eye.x, (camera->eye.y) - CAM_HEIGHT, (camera->eye.z) - TERRAIN_SIZE);
+    camera->at = glm::fvec3(camera->eye.x, (camera->eye.y) - CAM_VIEW.x, (camera->eye.z) - CAM_VIEW.y);
 
     glMatrixMode(GL_MODELVIEW);
 

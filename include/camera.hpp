@@ -1,6 +1,7 @@
 #pragma once
 
 #include <libs_init.hpp>
+#include <macros.hpp>
 
 typedef struct
 {

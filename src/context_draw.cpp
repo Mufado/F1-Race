@@ -98,7 +98,7 @@ void global_axis()
 void camera_sight(Camera *camera)
 {
     //Adjust sight width
-    glLineWidth(SIGTH_WIDTH);
+    glLineWidth(SIGTH_LINE_WIDTH);
     
     //Sight color
     glColor3f(SIGHT_COLOR.x, SIGHT_COLOR.y, SIGHT_COLOR.z);
