@@ -24,7 +24,7 @@ void perspective_init(Game *game)
 void draw_context(Game *game)
 {
     //Set default line width
-    glLineWidth(5.f);
+    glLineWidth(5.0f);
     
     draw_sky();
 
@@ -150,7 +150,7 @@ void draw_terrain()
 void draw_highway()
 {
     //Highway structure
-    glColor3f(0.185f, 0.185f, 0.185f);
+    glColor3f(0.4f, 0.4f, 0.4f);
     glBegin(GL_QUADS);
         glVertex3f(-HIGHWAY_WIDTH, 0.01f,  0.0f);
         glVertex3f( HIGHWAY_WIDTH, 0.01f,  0.0f);
@@ -159,14 +159,14 @@ void draw_highway()
     glEnd();
 
     //Tracks
-    glColor3f(0.4f, 0.4f, 0.4f);
-
+    glColor3f(0.9f, 0.9f, 0.9f);
+    
+    /* Starts render track's top edge in end of the highway, then render track body until reach the start point */
     float track_top = TERRAIN_SIZE;
-
     for (track_top; track_top >= 0.0f; track_top -= HW_TRACKS_LENGTH + HW_TRACKS_DETACHMENT)
     {
         float track_bottom = track_top - HW_TRACKS_LENGTH;
-
+        
         glBegin(GL_QUADS);
             glVertex3f(-HW_TRACKS_WIDTH, 0.02f, -track_bottom);
             glVertex3f( HW_TRACKS_WIDTH, 0.02f, -track_bottom);
