@@ -16,8 +16,6 @@ void project_init(Game *game)
     game->window->setKeyRepeatEnabled(true);
 
     glEnable(GL_DEPTH_TEST);
-    glDepthFunc(GL_ALWAYS);
-    
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
     start_camera(&game->camera);

@@ -24,7 +24,7 @@ typedef struct
 typedef struct 
 {
     glm::fvec3 global_position;
-    glm::fvec3 local_position; #This is the object self axis
+    glm::fvec3 local_position;
     glm::fvec3 color;
     
     Meshe obj_meshe; 
