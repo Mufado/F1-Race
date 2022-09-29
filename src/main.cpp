@@ -1,5 +1,13 @@
 #include <game_init.hpp>
 
+/*
+ * Basic remake of F1 Race game (1984) by a computer graphics begginer. Made in classic Open GL.
+ * Program behavior:
+ * - Draw a highway and objects (opponents and other stuf)
+ * - Draw the main car and set camera's eye always above it
+ * - Controls response makes entire world move around the main car to leave a movement feeling for the player
+*/
+
 int main()
 {
     /* Comments written to explain less intuitive functions and line codes */
