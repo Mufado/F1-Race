@@ -44,41 +44,28 @@ void draw_context(Game *game)
 
 void global_axis()
 {
-    //X Axis
-    glColor3f(1.0f, 0.0f, 0.0f);
     glBegin(GL_LINES);
+        //X Axis
+        glColor3f(1.0f, 0.0f, 0.0f);
         glVertex3f(0.0f, 0.0f, 0.0f);
         glVertex3f(AXIS_SIZE, 0.0f, 0.0f);
-    glEnd();
-
-    glColor3f(0.5f, 0.0f, 0.0f);
-    glBegin(GL_LINES);
+        glColor3f(0.5f, 0.0f, 0.0f);
         glVertex3f(0.0f, 0.0f, 0.0f);
         glVertex3f(-AXIS_SIZE, 0.0f, 0.0f);
-    glEnd();
 
-    //Y Axis
-    glColor3f(0.0f, 1.0f, 0.0f);
-    glBegin(GL_LINES);
+        //Y Axis
+        glColor3f(0.0f, 1.0f, 0.0f);
         glVertex3f(0.0f, 0.0f, 0.0f);
         glVertex3f(0.0f, AXIS_SIZE, 0.0f);
-    glEnd();
-
-    glColor3f(0.0f, 0.5f, 0.0f);
-    glBegin(GL_LINES);
+        glColor3f(0.0f, 0.5f, 0.0f);
         glVertex3f(0.0f, 0.0f, 0.0f);
         glVertex3f(0.0f, -AXIS_SIZE, 0.0f);
-    glEnd();
 
-    //Z Axis
-    glColor3f(0.0f, 0.0f, 1.0f);
-    glBegin(GL_LINES);
+        //Z Axis
+        glColor3f(0.0f, 0.0f, 1.0f);
         glVertex3f(0.0f, 0.0f, 0.0f);
         glVertex3f(0.0f, 0.0f, AXIS_SIZE);
-    glEnd();
-
-    glColor3f(0.0f, 0.0f, 0.5f);
-    glBegin(GL_LINES);
+        glColor3f(0.0f, 0.0f, 0.5f);
         glVertex3f(0.0f, 0.0f, 0.0f);
         glVertex3f(0.0f, 0.0f, -AXIS_SIZE);
     glEnd();
