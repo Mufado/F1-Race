@@ -4,7 +4,10 @@ void debug_controller(Game *game)
 {
     game->debug_mode = !game->debug_mode;
 
-    //Some cool stuff's coming ... ;)
+    if(!game->debug_mode)
+    {
+        start_camera(&game->camera);
+    }
 }
 
 void fullscreen_controller(Game *game)

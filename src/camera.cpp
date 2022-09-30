@@ -11,8 +11,8 @@ void load_camera(Camera *camera)
 {
     camera->at = glm::fvec3(camera->eye.x, (camera->eye.y) - CAM_VIEW.x, (camera->eye.z) - CAM_VIEW.y);
 
-    glMatrixMode(GL_MODELVIEW);
-
     glm::mat4 view_mat = glm::lookAt(camera->eye, camera->at, camera->up);
+
+    glMatrixMode(GL_MODELVIEW);
     glLoadMatrixf(glm::value_ptr(view_mat));
 }
