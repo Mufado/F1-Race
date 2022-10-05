@@ -18,6 +18,8 @@ void fullscreen_controller(Game *game)
         game->window->create(sf::VideoMode::getDesktopMode(), "F1_Race", sf::Style::Fullscreen, game->window_settings);
     else
         game->window->create(sf::VideoMode::getDesktopMode(), "F1_Race", sf::Style::Default, game->window_settings);
+    
+    glEnable(GL_DEPTH_TEST);
 }
 
 void axis_size_controller(Game *game)
