@@ -11,6 +11,7 @@ typedef struct
     sf::ContextSettings window_settings;
 
     glm::fvec4 background_color = DEFAULT_COLOR;
+    glm::fvec3 car_bottom       = CAR_INIT_POS;
 
     boolean fullscreen   = false;
     boolean debug_mode   = false;

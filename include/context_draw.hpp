@@ -18,4 +18,4 @@ void draw_highway();
 
 void draw_opponents();
 
-void draw_car();
+void draw_car(glm::fvec3);

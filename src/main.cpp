@@ -44,7 +44,7 @@ int main()
         perspective_init(&main_game);
 
         //Configure and set the camera
-        load_camera(&main_game.camera);
+        load_camera(&main_game.camera, main_game.car_bottom.x, main_game.debug_mode);
 
         //Render whatever we want in the context
         draw_context(&main_game);

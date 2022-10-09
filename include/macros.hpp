@@ -19,8 +19,10 @@
 //Camera Module Macros
 #define SIGTH_LINE_WIDTH  3.0f
 #define SIGHT_SIZE        5.0f
-#define SIGHT_COLOR glm::fvec3(0.4f, 0.3f, 0.4f)
+#define SIGHT_COLOR       glm::fvec3(0.4f, 0.3f, 0.4f)
 
-#define CAM_VIEW    glm::fvec2(2.5F, TERRAIN_SIZE)
-#define CAM_UP_AXIS glm::fvec3(0.0f, 1.0f, 0.0f) 
+#define CAM_VIEW    glm::fvec2(2.5f, TERRAIN_SIZE)
+#define CAM_UP_AXIS glm::fvec3(0.0f, 1.0f, 0.0f)
 
+//Car Module Macros
+#define CAR_INIT_POS glm::fvec3(0.0f, 0.03f, -6.0f);

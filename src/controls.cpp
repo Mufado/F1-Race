@@ -27,6 +27,24 @@ void axis_size_controller(Game *game)
     game->degub_tools = !game->degub_tools;
 }
 
+void move_car(Game *game, sf::Keyboard::Key key)
+{
+    if(game->debug_mode)
+    {
+        return;
+    }
+
+    switch (key)
+    {
+        case sf::Keyboard::A:
+            game->car_bottom.x -= 0.2f;
+            break;
+        case sf::Keyboard::D:
+            game->car_bottom.x += 0.2f;
+            break;
+    }
+}
+
 void keyboard_handler(sf::Event event, Game *game)
 {
     switch (event.key.code)
@@ -38,16 +56,10 @@ void keyboard_handler(sf::Event event, Game *game)
             fullscreen_controller(game);
             break;
         case sf::Keyboard::W:
-
-            break;
         case sf::Keyboard::A:
-
-            break;
         case sf::Keyboard::S:
-
-            break;
         case sf::Keyboard::D:
-
+            move_car(game, event.key.code);
             break;
         case sf::Keyboard::B:
             debug_controller(game);

@@ -34,7 +34,7 @@ void draw_context(Game *game)
 
     draw_opponents();
 
-    draw_car();
+    draw_car(game->car_bottom);
 
     if (game->debug_mode)
     {
@@ -166,7 +166,7 @@ void draw_highway()
     for (track_top; track_top >= 0.0f; track_top -= HW_TRACKS_LENGTH + HW_TRACKS_DETACHMENT)
     {
         float track_bottom = track_top - HW_TRACKS_LENGTH;
-        
+         
         glBegin(GL_QUADS);
             glVertex3f(-HW_TRACKS_WIDTH, 0.02f, -track_bottom);
             glVertex3f( HW_TRACKS_WIDTH, 0.02f, -track_bottom);
@@ -176,12 +176,18 @@ void draw_highway()
     }
 }
 
-void draw_opponents()
+void draw_opponents() 
 {
 
 }
 
-void draw_car()
+void draw_car(glm::fvec3 position)
 {
-
+    glm::fvec3(0.0f, 0.48f, 0.64f);
+    glBegin(GL_QUADS);
+        glVertex3f(position.x - 0.6f, position.y, position.z);
+        glVertex3f(position.x + 0.6f, position.y, position.z);
+        glVertex3f(position.x + 0.6f, position.y, position.z - 2.0f);
+        glVertex3f(position.x - 0.6f, position.y, position.z - 2.0f);
+    glEnd();
 }

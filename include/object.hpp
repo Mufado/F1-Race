@@ -22,10 +22,10 @@ typedef struct
 typedef struct 
 {
     glm::fvec3 global_position;
-    glm::fvec3 local_position; //This is the object self axis
+    glm::fvec3 local_position;
     glm::fvec3 color;
     
-    Meshe obj_meshe; 
+    Meshe obj_meshe;
 } Object;
 
 Object load_obj_from_file(const std::string);
