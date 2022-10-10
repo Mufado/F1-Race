@@ -13,9 +13,6 @@
 #define TERRAIN_SIZE          200.0f
 #define HIGHWAY_WIDTH         3.0f
 #define TRACKS_SIZE glm::fvec3(0.15f, 2.0f, 1.0f)
-#define HGW_TRACKS_WIDTH       0.15f
-#define HGW_TRACKS_LENGTH      2.0f
-#define HGW_TRACKS_DETACHMENT  1.0f
 #define AXIS_SIZE             TERRAIN_SIZE
 
 //Camera Module Macros

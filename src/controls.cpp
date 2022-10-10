@@ -48,10 +48,12 @@ void car_control(Game *game, sf::Keyboard::Key key)
     switch (key)
     {
         case sf::Keyboard::W:
+            break;
         case sf::Keyboard::A:
             game->main_car.global_position.x -= 0.6f;
             break;
         case sf::Keyboard::S:
+            break;
         case sf::Keyboard::D:
             game->main_car.global_position.x += 0.6f;
             break;
