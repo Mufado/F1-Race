@@ -17,7 +17,7 @@ typedef struct
     Object main_car = 
     {
         .global_position = DEFAULT_CAR_POS,
-        .local_position  = DEFAULT_LOCAl_POS
+        .local_position  = DEFAULT_LOCAL_POS
     };
 
     boolean fullscreen   = false;

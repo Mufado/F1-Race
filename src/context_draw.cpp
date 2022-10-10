@@ -158,20 +158,20 @@ void draw_highway()
         glVertex3f( HIGHWAY_WIDTH-0.01, 0.01f,  0.0f);
         glVertex3f( HIGHWAY_WIDTH-0.01, 0.01f, -TERRAIN_SIZE);
     glEnd();
+
     //Tracks
     glColor3f(0.9f, 0.9f, 0.9f);
     
     /* Starts render track's top edge in end of the highway, then render track body until reach the start point */
-    float track_top = TERRAIN_SIZE;
-    for (track_top; track_top >= 0.0f; track_top -= HW_TRACKS_LENGTH + HW_TRACKS_DETACHMENT)
+    for (float track_top = TERRAIN_SIZE; track_top >= 0.0f; track_top -= TRACKS_SIZE.y + TRACKS_SIZE.z)
     {
-        float track_bottom = track_top - HW_TRACKS_LENGTH;
+        float track_bottom = track_top - TRACKS_SIZE.y;
          
         glBegin(GL_QUADS);
-            glVertex3f(-HW_TRACKS_WIDTH, 0.02f, -track_bottom);
-            glVertex3f( HW_TRACKS_WIDTH, 0.02f, -track_bottom);
-            glVertex3f( HW_TRACKS_WIDTH, 0.02f, -track_top);
-            glVertex3f(-HW_TRACKS_WIDTH, 0.02f, -track_top);
+            glVertex3f(-TRACKS_SIZE.x, 0.02f, -track_bottom);
+            glVertex3f( TRACKS_SIZE.x, 0.02f, -track_bottom);
+            glVertex3f( TRACKS_SIZE.x, 0.02f, -track_top);
+            glVertex3f(-TRACKS_SIZE.x, 0.02f, -track_top);
         glEnd();
     }
 }
