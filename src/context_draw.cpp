@@ -34,7 +34,7 @@ void draw_context(Game *game)
 
     draw_opponents();
 
-    draw_car(game->car_bottom);
+    draw_car(game->main_car);
 
     if (game->debug_mode)
     {
@@ -181,13 +181,13 @@ void draw_opponents()
 
 }
 
-void draw_car(glm::fvec3 position)
-{
-    glm::fvec3(0.0f, 0.48f, 0.64f);
+void draw_car(Object car)
+{    
+    glColor3f(0.0f, 0.48f, 0.64f);
     glBegin(GL_QUADS);
-        glVertex3f(position.x - 0.6f, position.y, position.z);
-        glVertex3f(position.x + 0.6f, position.y, position.z);
-        glVertex3f(position.x + 0.6f, position.y, position.z - 2.0f);
-        glVertex3f(position.x - 0.6f, position.y, position.z - 2.0f);
+        glVertex3f(car.global_position.x - 0.6f, car.global_position.y, car.global_position.z);
+        glVertex3f(car.global_position.x + 0.6f, car.global_position.y, car.global_position.z);
+        glVertex3f(car.global_position.x + 0.6f, car.global_position.y, car.global_position.z - 2.0f);
+        glVertex3f(car.global_position.x - 0.6f, car.global_position.y, car.global_position.z - 2.0f);
     glEnd();
 }

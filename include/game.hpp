@@ -1,6 +1,7 @@
 #pragma once
 
 #include <camera.hpp>
+#include <object.hpp>
 
 typedef struct 
 {
@@ -11,7 +12,13 @@ typedef struct
     sf::ContextSettings window_settings;
 
     glm::fvec4 background_color = DEFAULT_COLOR;
-    glm::fvec3 car_bottom       = CAR_INIT_POS;
+
+    // Scenario Object's
+    Object main_car = 
+    {
+        .global_position = DEFAULT_CAR_POS,
+        .local_position  = DEFAULT_LOCAl_POS
+    };
 
     boolean fullscreen   = false;
     boolean debug_mode   = false;

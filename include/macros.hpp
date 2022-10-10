@@ -25,4 +25,5 @@
 #define CAM_UP_AXIS glm::fvec3(0.0f, 1.0f, 0.0f)
 
 //Car Module Macros
-#define CAR_INIT_POS glm::fvec3(0.0f, 0.03f, -6.0f);
+#define DEFAULT_CAR_POS   glm::fvec3(0.0f, 0.03f, -6.0f)
+#define DEFAULT_LOCAl_POS glm::fvec3(0.0f, 0.0f, 0.0f)

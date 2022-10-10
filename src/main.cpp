@@ -43,8 +43,11 @@ int main()
         //Configure the projection perspective
         perspective_init(&main_game);
 
-        //Configure and set the camera
-        load_camera(&main_game.camera, main_game.car_bottom.x, main_game.debug_mode);
+        //Configure the camera position
+        camera_movement(&main_game);
+
+        //Set the camera in the world
+        load_camera(&main_game.camera);
 
         //Render whatever we want in the context
         draw_context(&main_game);

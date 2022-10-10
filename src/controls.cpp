@@ -27,26 +27,41 @@ void axis_size_controller(Game *game)
     game->degub_tools = !game->degub_tools;
 }
 
-void move_car(Game *game, sf::Keyboard::Key key)
+void camera_movement(Game *game)
 {
-    if(game->debug_mode)
+    if(!game->debug_mode)
     {
-        return;
+        game->camera.eye.x = game->main_car.global_position.x;
     }
+    else
+    {
+        game->camera.at  = glm::fvec3(
+            (game->camera.eye.x), 
+            (game->camera.eye.y) - CAM_VIEW.x, 
+            (game->camera.eye.z) - CAM_VIEW.y
+        );
+    }
+}
 
+void car_control(Game *game, sf::Keyboard::Key key)
+{
     switch (key)
     {
+        case sf::Keyboard::W:
         case sf::Keyboard::A:
-            game->car_bottom.x -= 0.2f;
+            game->main_car.global_position.x -= 0.6f;
             break;
+        case sf::Keyboard::S:
         case sf::Keyboard::D:
-            game->car_bottom.x += 0.2f;
+            game->main_car.global_position.x += 0.6f;
             break;
     }
 }
 
 void keyboard_handler(sf::Event event, Game *game)
 {
+    car_control(game, event.key.code);
+
     switch (event.key.code)
     {
         case sf::Keyboard::Escape:
@@ -54,12 +69,6 @@ void keyboard_handler(sf::Event event, Game *game)
             break;
         case sf::Keyboard::F11:
             fullscreen_controller(game);
-            break;
-        case sf::Keyboard::W:
-        case sf::Keyboard::A:
-        case sf::Keyboard::S:
-        case sf::Keyboard::D:
-            move_car(game, event.key.code);
             break;
         case sf::Keyboard::B:
             debug_controller(game);

@@ -11,4 +11,4 @@ typedef struct
 
 void start_camera(Camera *);
 
-void load_camera(Camera *, float, bool);
+void load_camera(Camera *);
