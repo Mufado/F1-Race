@@ -15,6 +15,12 @@ void load_window_setting(Game *game)
     game->window_settings.sRgbCapable       = 0;
 }
 
+void load_objects(Game *game)
+{
+    game->main_car = load_obj_from_file("f1_car.obj");
+    game->main_car.global_position = DEFAULT_CAR_POS;
+}
+
 void project_init(Game *game)
 {
     game->window->setFramerateLimit(60);
@@ -22,6 +28,8 @@ void project_init(Game *game)
 
     glEnable(GL_DEPTH_TEST);
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
+    load_objects(game);
 
     start_camera(&game->camera);
 }

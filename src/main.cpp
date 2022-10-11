@@ -11,7 +11,6 @@
 int main()
 {
     /* Comments written to explain less intuitive functions and line codes */
-
     Game main_game;
 
     //Load setting creating windows
