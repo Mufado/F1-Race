@@ -8,7 +8,7 @@ void fullscreen_controller(Game *);
 
 void axis_size_controller(Game *);
 
-void car_control(Game *, sf::Keyboard::Key);
+void movement_handler(Game *);
 
 void keyboard_handler(sf::Event, Game *);
 

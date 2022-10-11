@@ -43,27 +43,13 @@ void camera_movement(Game *game)
     }
 }
 
-void car_control(Game *game, sf::Keyboard::Key key)
+void movement_handler(Game *game)
 {
-    switch (key)
-    {
-        case sf::Keyboard::W:
-            break;
-        case sf::Keyboard::A:
-            game->main_car.global_position.x -= 0.6f;
-            break;
-        case sf::Keyboard::S:
-            break;
-        case sf::Keyboard::D:
-            game->main_car.global_position.x += 0.6f;
-            break;
-    }
+    
 }
 
 void keyboard_handler(sf::Event event, Game *game)
 {
-    car_control(game, event.key.code);
-
     switch (event.key.code)
     {
         case sf::Keyboard::Escape:

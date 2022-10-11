@@ -40,6 +40,9 @@ int main()
             }
         }
 
+        //Controls world movement
+        movement_handler(&main_game);
+
         //Configure the projection perspective
         perspective_init(&main_game);
 

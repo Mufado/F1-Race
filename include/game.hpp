@@ -5,6 +5,9 @@
 
 typedef struct 
 {
+    //Measuring timing to help in game physics
+    sf::Clock clock;
+
     Camera camera;
 
     sf::Window *window;
@@ -20,10 +23,17 @@ typedef struct
         .local_position  = DEFAULT_LOCAL_POS
     };
 
+    //Controls physics of world movements
+    float velocity = 0.0f;
+    float acceleration = 0.0f;
+    float motion = 0.0f;
+
     boolean fullscreen   = false;
     boolean debug_mode   = false;
     boolean degub_tools  = true;
 } Game;
+
+void physics_handler(Game *);
 
 void load_window_setting(Game *);
 
