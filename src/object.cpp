@@ -41,7 +41,7 @@ Object load_obj_from_file(const std::string obj_file)
             std::size_t vertex_index{};
             char delim{};
 
-            while (stream >> vertex_index >> delim)
+            while (stream >> vertex_index)
                 loaded_object.obj_meshe.vertex_list.emplace_back(std::move(vertex_list[vertex_index - 1u]));
         }
     }

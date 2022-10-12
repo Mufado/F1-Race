@@ -193,6 +193,16 @@ void draw_car(Object car)
             );
     glEnd();
 
+    glColor3f(0.0f, 0.0f, 0.0f);
+    glBegin(GL_LINE_LOOP);
+        for(glm::fvec3 vertex : car.obj_meshe.vertex_list)
+            glVertex3f(
+                vertex.x + car.global_position.x,
+                vertex.y + car.global_position.y, 
+                vertex.z + car.global_position.z
+            );
+    glEnd();
+
     // glBegin(GL_QUADS);
     //     glVertex3f(car.global_position.x - 0.6f, car.global_position.y, car.global_position.z);
     //     glVertex3f(car.global_position.x + 0.6f, car.global_position.y, car.global_position.z);
