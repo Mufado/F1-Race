@@ -17,7 +17,7 @@ void load_window_setting(Game *game)
 
 void load_objects(Game *game)
 {
-    game->main_car = load_obj_from_file("f1_car.obj");
+    game->main_car = load_obj_from_file("fiat.obj");
     game->main_car.global_position = DEFAULT_CAR_POS;
 }
 

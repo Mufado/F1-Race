@@ -30,7 +30,7 @@ typedef struct
 
     boolean fullscreen   = false;
     boolean debug_mode   = false;
-    boolean degub_tools  = true;
+    boolean degub_tools  = false;
 } Game;
 
 void physics_handler(Game *);
