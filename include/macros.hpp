@@ -27,4 +27,6 @@
 #define CAM_ROTATE_ANG 5.0
 
 //Car Object Macros
+#define CAR_FILE_NAME "fiat.obj"
+//#define CAR_FILE_NAME "f1_car.obj"
 #define DEFAULT_CAR_POS glm::fvec3(0.0f, 0.5f, -6.0f)
