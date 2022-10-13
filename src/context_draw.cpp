@@ -37,9 +37,7 @@ void draw_context(Game *game)
     draw_car(game->main_car);
 
     if (game->debug_mode)
-    {
         draw_debug_context(game);
-    }
 }
 
 void global_axis()

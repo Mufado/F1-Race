@@ -13,7 +13,7 @@
 
 //Draw Module Macros
 #define TERRAIN_SIZE  200.0f
-#define HIGHWAY_WIDTH 3.0f
+#define HIGHWAY_WIDTH 6.0f
 #define TRACKS_SIZE   glm::fvec3(0.15f, 2.0f, 1.0f) //Width, Length, Detachment
 #define AXIS_SIZE     TERRAIN_SIZE
 
@@ -27,6 +27,8 @@
 #define CAM_ROTATE_ANG 5.0
 
 //Car Object Macros
-#define CAR_FILE_NAME "fiat.obj"
-//#define CAR_FILE_NAME "f1_car.obj"
+//#define CAR_FILE_NAME "fiat.obj"
+#define CAR_FILE_NAME "f1_car.obj"
 #define DEFAULT_CAR_POS glm::fvec3(0.0f, 0.5f, -6.0f)
+#define CAR_SIDE_MOV 0.2f
+#define HIGHWAY_LIMIT (HIGHWAY_WIDTH - 0.5f)

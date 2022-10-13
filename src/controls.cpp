@@ -61,12 +61,14 @@ void movement_handler(Game *game, sf::Keyboard::Key key)
         case sf::Keyboard::W:
             break;
         case sf::Keyboard::A:
-            game->main_car.global_position.x -= 0.6f;
+            if(game->main_car.global_position.x  - CAR_SIDE_MOV > -(HIGHWAY_LIMIT))
+                game->main_car.global_position.x -= CAR_SIDE_MOV;
             break;
         case sf::Keyboard::S:
             break;
         case sf::Keyboard::D:
-            game->main_car.global_position.x += 0.6f;
+            if(game->main_car.global_position.x + CAR_SIDE_MOV < HIGHWAY_LIMIT)
+                game->main_car.global_position.x += CAR_SIDE_MOV;
             break;
     }
 }
