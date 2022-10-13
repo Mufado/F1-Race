@@ -193,8 +193,10 @@ void draw_car(Object car)
             );
     glEnd();
 
+    glPolygonMode (GL_FRONT_AND_BACK, GL_LINE);
+    
     glColor3f(0.0f, 0.0f, 0.0f);
-    glBegin(GL_LINE_LOOP);
+    glBegin(GL_TRIANGLES);
         for(glm::fvec3 vertex : car.obj_meshe.vertex_list)
             glVertex3f(
                 vertex.x + car.global_position.x,
@@ -203,10 +205,5 @@ void draw_car(Object car)
             );
     glEnd();
 
-    // glBegin(GL_QUADS);
-    //     glVertex3f(car.global_position.x - 0.6f, car.global_position.y, car.global_position.z);
-    //     glVertex3f(car.global_position.x + 0.6f, car.global_position.y, car.global_position.z);
-    //     glVertex3f(car.global_position.x + 0.6f, car.global_position.y, car.global_position.z - 2.0f);
-    //     glVertex3f(car.global_position.x - 0.6f, car.global_position.y, car.global_position.z - 2.0f);
-    // glEnd();
+    glPolygonMode (GL_FRONT_AND_BACK, GL_FILL);
 }
