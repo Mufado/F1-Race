@@ -28,9 +28,13 @@ typedef struct
     float acceleration = 0.0f;
     float motion = 0.0f;
 
+    //Camera angle
+    double rotate_angule = 0.0;
+
     boolean fullscreen   = false;
     boolean debug_mode   = false;
     boolean degub_tools  = false;
+
 } Game;
 
 void physics_handler(Game *);

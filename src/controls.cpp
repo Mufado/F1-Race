@@ -35,11 +35,18 @@ void camera_movement(Game *game)
     }
     else
     {
-        game->camera.at  = glm::fvec3(
-            (game->camera.eye.x), 
-            (game->camera.eye.y) - CAM_VIEW.x, 
-            (game->camera.eye.z) - CAM_VIEW.y
-        );
+        if(game->rotate_angule != 0.0)
+        {
+            rotate_camera(&game->camera, game->rotate_angule);
+        }
+        else
+        {
+            game->camera.at  = glm::fvec3(
+                (game->camera.eye.x), 
+                (game->camera.eye.y), 
+                (game->camera.eye.z) - CAM_VIEW.x
+            );
+        }
     }
 }
 
@@ -67,6 +74,12 @@ void keyboard_handler(sf::Event event, Game *game)
         game->background_color = DEBUG_COLOR;
         switch (event.key.code)
         {
+            case sf::Keyboard::Q:
+                game->rotate_angule += CAM_ROTATE_ANG;
+                break;
+            case sf::Keyboard::E:
+                game->rotate_angule -= CAM_ROTATE_ANG;
+                break;
             case sf::Keyboard::Up:
                 game->camera.eye.z--;
                 break;
@@ -90,11 +103,15 @@ void keyboard_handler(sf::Event event, Game *game)
             case sf::Keyboard::X:
                 axis_size_controller(game);
                 break;
-        }   
+        } 
+
+        if(game->rotate_angule == 360.0f || game->rotate_angule == -360.0f)  
+            game->rotate_angule = 0.0f;
     }
     else
     {
         game->background_color = DEFAULT_COLOR;
+        game->rotate_angule = 0.0f;
         start_camera(&game->camera);
     }
 }

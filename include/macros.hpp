@@ -1,6 +1,8 @@
 #pragma once
 #include <libs_init.hpp>
 
+#define PI 3.14159265359
+
 //Object Module Macros
 #define MESHES_FILEPATH   "../../../assets/meshes/"
 #define DEFAULT_LOCAL_POS glm::fvec3(0.0f, 0.0f, 0.0f)
@@ -20,8 +22,9 @@
 #define SIGHT_SIZE       5.0f
 #define SIGHT_COLOR      glm::fvec3(0.4f, 0.3f, 0.4f)
 
-#define CAM_VIEW    glm::fvec2(2.5f, TERRAIN_SIZE)
+#define CAM_VIEW    glm::fvec2(2.0f, 2.0f)
 #define CAM_UP_AXIS glm::fvec3(0.0f, 1.0f, 0.0f)
+#define CAM_ROTATE_ANG 5.0
 
 //Car Object Macros
 #define DEFAULT_CAR_POS glm::fvec3(0.0f, 0.5f, -6.0f)
