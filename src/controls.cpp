@@ -32,13 +32,17 @@ void camera_movement(Game *game)
     if(!game->debug_mode)
     {
         game->camera.eye.x = game->main_car.global_position.x;
+
+        game->camera.at  = glm::fvec3(
+            (game->camera.eye.x), 
+            (game->camera.eye.y), 
+            (game->camera.eye.z) - CAM_VIEW.x
+        );
     }
     else
     {
         if(game->rotate_angule != 0.0)
-        {
             rotate_camera(&game->camera, game->rotate_angule);
-        }
         else
         {
             game->camera.at  = glm::fvec3(
@@ -50,14 +54,26 @@ void camera_movement(Game *game)
     }
 }
 
-void movement_handler(Game *game)
+void movement_handler(Game *game, sf::Keyboard::Key key)
 {
-    
+    switch (key)
+    {
+        case sf::Keyboard::W:
+            break;
+        case sf::Keyboard::A:
+            game->main_car.global_position.x -= 0.6f;
+            break;
+        case sf::Keyboard::S:
+            break;
+        case sf::Keyboard::D:
+            game->main_car.global_position.x += 0.6f;
+            break;
+    }
 }
 
-void keyboard_handler(sf::Event event, Game *game)
+void window_handler(Game *game, sf::Keyboard::Key key)
 {
-    switch (event.key.code)
+    switch (key)
     {
         case sf::Keyboard::Escape:
             game->window->close();
@@ -68,11 +84,14 @@ void keyboard_handler(sf::Event event, Game *game)
         case sf::Keyboard::B:
             debug_controller(game);
     }
+}
 
+void debug_handler(Game *game, sf::Keyboard::Key key)
+{
     if(game->debug_mode)
     {
         game->background_color = DEBUG_COLOR;
-        switch (event.key.code)
+        switch (key)
         {
             case sf::Keyboard::Q:
                 game->rotate_angule += CAM_ROTATE_ANG;
@@ -94,7 +113,7 @@ void keyboard_handler(sf::Event event, Game *game)
                 break;
             case sf::Keyboard::LShift:
             case sf::Keyboard::RShift:
-                game->camera.eye.y++;  
+                game->camera.eye.y++;
                 break;
             case sf::Keyboard::LControl:
             case sf::Keyboard::RControl:
@@ -103,9 +122,9 @@ void keyboard_handler(sf::Event event, Game *game)
             case sf::Keyboard::X:
                 axis_size_controller(game);
                 break;
-        } 
+        }
 
-        if(game->rotate_angule == 360.0f || game->rotate_angule == -360.0f)  
+        if (game->rotate_angule == 360.0f || game->rotate_angule == -360.0f)
             game->rotate_angule = 0.0f;
     }
     else
@@ -114,4 +133,13 @@ void keyboard_handler(sf::Event event, Game *game)
         game->rotate_angule = 0.0f;
         start_camera(&game->camera);
     }
+}
+
+void keyboard_handler(Game *game, sf::Keyboard::Key key)
+{
+    movement_handler(game, key);
+
+    window_handler(game, key);
+
+    debug_handler(game, key);
 }

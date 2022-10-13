@@ -34,13 +34,10 @@ int main()
                     main_game.window->close();
                     break;  
                 case sf::Event::KeyPressed:
-                    keyboard_handler(event, &main_game);
+                    keyboard_handler(&main_game, event.key.code);
                     break;
             }
         }
-
-        //Controls world movement
-        movement_handler(&main_game);
 
         //Configure the projection perspective
         perspective_init(&main_game);
