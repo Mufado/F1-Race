@@ -16,6 +16,8 @@ void draw_terrain();
 
 void draw_highway();
 
+void draw_strips();
+
 void draw_opponents();
 
 void draw_car(Object);
