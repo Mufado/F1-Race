@@ -32,8 +32,6 @@ void draw_context(Game *game)
 
     draw_highway();
 
-    draw_strips();
-
     draw_opponents();
 
     draw_car(game->main_car);
@@ -149,19 +147,33 @@ void draw_highway()
         glVertex3f( HIGHWAY_WIDTH, 0.01f, -TERRAIN_SIZE);
         glVertex3f(-HIGHWAY_WIDTH, 0.01f, -TERRAIN_SIZE);
     glEnd();
+
+    draw_strips();
 }
 
 void draw_strips()
 {
-    // glColor3f(0.9f, 0.9f, 0.9f);
-    // glBegin(GL_LINES);
-    //     glVertex3f(-HIGHWAY_WIDTH-0.01, 0.01f,  0.0f);
-    //     glVertex3f(-HIGHWAY_WIDTH-0.01, 0.01f, -TERRAIN_SIZE);
-    //     glVertex3f( HIGHWAY_WIDTH-0.01, 0.01f,  0.0f);
-    //     glVertex3f( HIGHWAY_WIDTH-0.01, 0.01f, -TERRAIN_SIZE);
-    // glEnd();
-
+    for(int strip_cord = 0; strip_cord < TERRAIN_SIZE; strip_cord++)
+    {
+        if(strip_cord % 2 == 0)
+            glColor3f(0.9f, 0.9f, 0.9f);
+        else    
+            glColor3f(1.0f, 0.0f, 0.0f);
     
+        glBegin(GL_QUADS);
+            glVertex3f(-HIGHWAY_WIDTH, 0.01f, -strip_cord);
+            glVertex3f(-HIGHWAY_STRIPS_WIDTH, 0.01f, -strip_cord);
+            glVertex3f(-HIGHWAY_STRIPS_WIDTH, 0.01f, -(strip_cord + 1));
+            glVertex3f(-HIGHWAY_WIDTH, 0.01f, -(strip_cord + 1));
+        glEnd();
+
+        glBegin(GL_QUADS);
+            glVertex3f(HIGHWAY_WIDTH, 0.01f, -strip_cord);
+            glVertex3f(HIGHWAY_STRIPS_WIDTH, 0.01f, -strip_cord);
+            glVertex3f(HIGHWAY_STRIPS_WIDTH, 0.01f, -(strip_cord + 1));
+            glVertex3f(HIGHWAY_WIDTH, 0.01f, -(strip_cord + 1));
+        glEnd();        
+    }
 
     //Tracks
     // glColor3f(0.9f, 0.9f, 0.9f);

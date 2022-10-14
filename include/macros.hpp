@@ -14,8 +14,10 @@
 //Draw Module Macros
 #define TERRAIN_SIZE  200.0f
 #define HIGHWAY_WIDTH 6.0f
+#define HIGHWAY_STRIPS_WIDTH (HIGHWAY_WIDTH + 0.5f)
+
 #define TRACKS_SIZE   glm::fvec3(0.15f, 2.0f, 1.0f) //Width, Length, Detachment
-#define AXIS_SIZE     TERRAIN_SIZE
+#define AXIS_SIZE     (TERRAIN_SIZE)
 
 //Camera Module Macros
 #define SIGTH_LINE_WIDTH 3.0f
