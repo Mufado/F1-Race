@@ -160,6 +160,7 @@ void draw_strips()
         else    
             glColor3f(1.0f, 0.0f, 0.0f);
     
+        //Left Strips
         glBegin(GL_QUADS);
             glVertex3f(-HIGHWAY_WIDTH, 0.01f, -strip_cord);
             glVertex3f(-HIGHWAY_STRIPS_WIDTH, 0.01f, -strip_cord);
@@ -167,16 +168,14 @@ void draw_strips()
             glVertex3f(-HIGHWAY_WIDTH, 0.01f, -(strip_cord + 1));
         glEnd();
 
+        //Right Strips
         glBegin(GL_QUADS);
             glVertex3f(HIGHWAY_WIDTH, 0.01f, -strip_cord);
             glVertex3f(HIGHWAY_STRIPS_WIDTH, 0.01f, -strip_cord);
             glVertex3f(HIGHWAY_STRIPS_WIDTH, 0.01f, -(strip_cord + 1));
             glVertex3f(HIGHWAY_WIDTH, 0.01f, -(strip_cord + 1));
-        glEnd();        
+        glEnd();    
     }
-
-    //Tracks
-    // glColor3f(0.9f, 0.9f, 0.9f);
     
     /* Starts render track's top edge in end of the highway, then render track body until reach the start point */
     // for (float track_top = TERRAIN_SIZE; track_top >= 0.0f; track_top -= TRACKS_SIZE.y + TRACKS_SIZE.z)

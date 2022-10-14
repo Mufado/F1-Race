@@ -5,6 +5,8 @@
 
 //Object Module Macros
 #define MESHES_FILEPATH   "../../../assets/meshes/"
+//#define CAR_FILE_NAME "fiat.obj"
+#define CAR_FILE_NAME "f1_car.obj"
 #define DEFAULT_LOCAL_POS glm::fvec3(0.0f, 0.0f, 0.0f)
 
 //Game Module Macros
@@ -16,7 +18,10 @@
 #define HIGHWAY_WIDTH 6.0f
 #define HIGHWAY_STRIPS_WIDTH (HIGHWAY_WIDTH + 0.5f)
 
-#define TRACKS_SIZE   glm::fvec3(0.15f, 2.0f, 1.0f) //Width, Length, Detachment
+#define STRIPS_DIST   0.25f
+#define STRIPS_LENGHT 1.0f
+#define STRIPS_LENGHT 2.0f
+#define STRIPS_SEPARATOR 1.0f
 #define AXIS_SIZE     (TERRAIN_SIZE)
 
 //Camera Module Macros
@@ -29,8 +34,6 @@
 #define CAM_ROTATE_ANG 5.0
 
 //Car Object Macros
-//#define CAR_FILE_NAME "fiat.obj"
-#define CAR_FILE_NAME "f1_car.obj"
 #define DEFAULT_CAR_POS glm::fvec3(0.0f, 0.5f, -6.0f)
 #define CAR_SIDE_MOV 0.2f
 #define HIGHWAY_LIMIT (HIGHWAY_WIDTH - 0.5f)
