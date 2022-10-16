@@ -1,6 +1,7 @@
 #include <game_init.hpp>
 
 /*
+ * Comments written to explain less intuitive functions and line codes.
  * Basic remake of F1 Race game (1984) by a computer graphics begginer. Made in classic Open GL.
  * Program behavior:
  * - Draw a highway and objects (opponents and other stuf)
@@ -10,7 +11,6 @@
 
 int main()
 {
-    /* Comments written to explain less intuitive functions and line codes */
     Game main_game;
 
     //Load setting creating windows
@@ -20,6 +20,9 @@ int main()
 
     //Initial configurations
     project_init(&main_game);
+
+    //Configure the projection perspective
+    perspective_init(&main_game);
 
     //Render loop
     while (main_game.window->isOpen())
@@ -32,15 +35,12 @@ int main()
             {
                 case sf::Event::Closed:
                     main_game.window->close();
-                    break;  
+                    break;
                 case sf::Event::KeyPressed:
                     keyboard_handler(&main_game, event.key.code);
                     break;
             }
         }
-
-        //Configure the projection perspective
-        perspective_init(&main_game);
 
         //Configure the camera position
         camera_movement(&main_game);
@@ -52,6 +52,9 @@ int main()
         draw_context(&main_game);
 
         main_game.window->display();
+
+        //Clear and update window
+        load_viewport(&main_game);
     }
 
     return 0;
