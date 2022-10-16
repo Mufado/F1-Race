@@ -176,19 +176,26 @@ void draw_strips()
             glVertex3f(HIGHWAY_WIDTH, 0.01f, -(strip_cord + 1));
         glEnd();    
     }
-    
-    /* Starts render track's top edge in end of the highway, then render track body until reach the start point */
-    // for (float track_top = TERRAIN_SIZE; track_top >= 0.0f; track_top -= TRACKS_SIZE.y + TRACKS_SIZE.z)
-    // {
-    //     float track_bottom = track_top - TRACKS_SIZE.y;
-         
-    //     glBegin(GL_QUADS);
-    //         glVertex3f(-TRACKS_SIZE.x, 0.02f, -track_bottom);
-    //         glVertex3f( TRACKS_SIZE.x, 0.02f, -track_bottom);
-    //         glVertex3f( TRACKS_SIZE.x, 0.02f, -track_top);
-    //         glVertex3f(-TRACKS_SIZE.x, 0.02f, -track_top);
-    //     glEnd();
-    // }
+
+    glColor3f(0.9f, 0.9f, 0.9f);
+    for(float center_strip_cord = 0.0; (center_strip_cord + STRIPS_LENGHT) < TERRAIN_SIZE; center_strip_cord += STRIPS_LENGHT)
+    {
+        glBegin(GL_QUADS);
+            glVertex3f(STRIPS_DIST, 0.02f, -center_strip_cord);
+            glVertex3f((STRIPS_DIST + STRIPS_WIDTH), 0.02f, -center_strip_cord);
+            glVertex3f((STRIPS_DIST + STRIPS_WIDTH), 0.02f, -(center_strip_cord + STRIPS_LENGHT));
+            glVertex3f(STRIPS_DIST, 0.02f, -(center_strip_cord + STRIPS_LENGHT));
+        glEnd();
+
+        glBegin(GL_QUADS);
+            glVertex3f(-STRIPS_DIST, 0.02f, -center_strip_cord);
+            glVertex3f(-(STRIPS_DIST + STRIPS_WIDTH), 0.02f, -center_strip_cord);
+            glVertex3f(-(STRIPS_DIST + STRIPS_WIDTH), 0.02f, -(center_strip_cord + STRIPS_LENGHT));
+            glVertex3f(-STRIPS_DIST, 0.02f, -(center_strip_cord + STRIPS_LENGHT));
+        glEnd();
+
+        center_strip_cord += STRIPS_SEPARATOR;
+    }
 }
 
 void draw_opponents() 

@@ -5,8 +5,8 @@
 
 //Object Module Macros
 #define MESHES_FILEPATH   "../../../assets/meshes/"
-//#define CAR_FILE_NAME "fiat.obj"
-#define CAR_FILE_NAME "f1_car.obj"
+#define CAR_FILE_NAME "fiat.obj"
+//#define CAR_FILE_NAME "f1_car.obj"
 #define DEFAULT_LOCAL_POS glm::fvec3(0.0f, 0.0f, 0.0f)
 
 //Game Module Macros
@@ -15,13 +15,13 @@
 
 //Draw Module Macros
 #define TERRAIN_SIZE  200.0f
-#define HIGHWAY_WIDTH 6.0f
+#define HIGHWAY_WIDTH 3.0f
 #define HIGHWAY_STRIPS_WIDTH (HIGHWAY_WIDTH + 0.5f)
 
-#define STRIPS_DIST   0.25f
-#define STRIPS_LENGHT 1.0f
-#define STRIPS_LENGHT 2.0f
-#define STRIPS_SEPARATOR 1.0f
+#define STRIPS_DIST   0.0625f
+#define STRIPS_WIDTH 0.125f
+#define STRIPS_LENGHT 4.0f
+#define STRIPS_SEPARATOR 3.0f
 #define AXIS_SIZE     (TERRAIN_SIZE)
 
 //Camera Module Macros
