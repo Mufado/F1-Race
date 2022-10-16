@@ -1,5 +1,26 @@
 #include <context_draw.hpp>
 
+void load_viewport(Game *game)
+{
+    game->window_size = game->window->getSize();
+
+    glViewport(0, 0, game->window_size.x, game->window_size.y);
+
+    glClearColor(game->background_color.x, game->background_color.y, game->background_color.z, game->background_color.w);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+}
+
+void perspective_init(Game *game)
+{
+    load_viewport(game);
+
+    float aspect_ratio = float(game->window_size.x) / float(game->window_size.y);
+    glm::mat4 projection_mat = glm::perspective(45.0f, aspect_ratio, 0.1f, 300.0f);
+
+    glMatrixMode(GL_PROJECTION);
+    glLoadMatrixf(glm::value_ptr(projection_mat));
+}; 
+
 void draw_context(Game *game)
 {
     //Set default line width
@@ -127,26 +148,7 @@ void draw_highway()
         glVertex3f(-HIGHWAY_WIDTH, 0.01f, -TERRAIN_SIZE);
     glEnd();
 
-    draw_tracks();
-
     draw_strips();
-}
-
-void draw_tracks()
-{
-    glColor3f(0.9f, 0.9f, 0.9f);
-    /* Starts render track's top edge in end of the highway, then render track body until reach the start point */
-    for (float track_top = TERRAIN_SIZE; track_top >= 0.0f; track_top -= TRACKS_SIZE.y + TRACKS_DETACHMENT)
-    {
-        float track_bottom = track_top - TRACKS_SIZE.y;
-         
-        glBegin(GL_QUADS);
-            glVertex3f(-TRACKS_SIZE.x, 0.02f, -track_bottom);
-            glVertex3f( TRACKS_SIZE.x, 0.02f, -track_bottom);
-            glVertex3f( TRACKS_SIZE.x, 0.02f, -track_top);
-            glVertex3f(-TRACKS_SIZE.x, 0.02f, -track_top);
-        glEnd();
-    }
 }
 
 void draw_strips()
@@ -174,6 +176,19 @@ void draw_strips()
             glVertex3f(HIGHWAY_WIDTH, 0.01f, -(strip_cord + 1));
         glEnd();    
     }
+    
+    /* Starts render track's top edge in end of the highway, then render track body until reach the start point */
+    // for (float track_top = TERRAIN_SIZE; track_top >= 0.0f; track_top -= TRACKS_SIZE.y + TRACKS_SIZE.z)
+    // {
+    //     float track_bottom = track_top - TRACKS_SIZE.y;
+         
+    //     glBegin(GL_QUADS);
+    //         glVertex3f(-TRACKS_SIZE.x, 0.02f, -track_bottom);
+    //         glVertex3f( TRACKS_SIZE.x, 0.02f, -track_bottom);
+    //         glVertex3f( TRACKS_SIZE.x, 0.02f, -track_top);
+    //         glVertex3f(-TRACKS_SIZE.x, 0.02f, -track_top);
+    //     glEnd();
+    // }
 }
 
 void draw_opponents() 

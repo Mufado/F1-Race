@@ -1,26 +1,5 @@
 #include <game.hpp>
 
-void load_viewport(Game *game)
-{
-    game->window_size = game->window->getSize();
-
-    glViewport(0, 0, game->window_size.x, game->window_size.y);
-
-    glClearColor(game->background_color.x, game->background_color.y, game->background_color.z, game->background_color.w);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-}
-
-void perspective_init(Game *game)
-{
-    load_viewport(game);
-
-    float aspect_ratio = float(game->window_size.x) / float(game->window_size.y);
-    glm::mat4 projection_mat = glm::perspective(45.0f, aspect_ratio, 0.1f, 300.0f);
-
-    glMatrixMode(GL_PROJECTION);
-    glLoadMatrixf(glm::value_ptr(projection_mat));
-}
-
 void physics_handler(Game *game)
 {
     

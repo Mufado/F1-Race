@@ -14,15 +14,15 @@
 #define DEBUG_COLOR   glm::fvec4(0.3f, 0.3f, 0.3f, 1.0f)
 
 //Draw Module Macros
-#define TERRAIN_SIZE         200.0f
-#define HIGHWAY_WIDTH        6.0f
+#define TERRAIN_SIZE  200.0f
+#define HIGHWAY_WIDTH 6.0f
 #define HIGHWAY_STRIPS_WIDTH (HIGHWAY_WIDTH + 0.5f)
-#define TRACKS_SIZE          glm::fvec2(0.15f, 2.0f)
-#define TRACKS_DETACHMENT    2.0f
-#define STRIPS_DIST          0.25f
-#define STRIPS_LENGHT        2.0f
-#define STRIPS_SEPARATOR     1.0f
-#define AXIS_SIZE            (TERRAIN_SIZE)
+
+#define STRIPS_DIST   0.25f
+#define STRIPS_LENGHT 1.0f
+#define STRIPS_LENGHT 2.0f
+#define STRIPS_SEPARATOR 1.0f
+#define AXIS_SIZE     (TERRAIN_SIZE)
 
 //Camera Module Macros
 #define SIGTH_LINE_WIDTH 3.0f

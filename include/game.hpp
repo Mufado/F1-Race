@@ -37,10 +37,6 @@ typedef struct
 
 } Game;
 
-void load_viewport(Game *);
-
-void perspective_init(Game *);
-
 void physics_handler(Game *);
 
 void load_window_setting(Game *);
