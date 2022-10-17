@@ -24,9 +24,10 @@ typedef struct
     };
 
     //Controls physics of world movements
-    float velocity = 0.0f;
-    float acceleration = 0.0f;
-    float motion = 0.0f;
+    glm::fvec3 terrain_cord = glm::fvec3(0.0f, 0.0f, 0.0f);
+
+    float velocity = 0.0;
+    float aceleration = 0.3;
 
     //Camera angle
     double rotate_angule = 0.0;

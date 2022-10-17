@@ -15,7 +15,7 @@ void perspective_init(Game *game)
     load_viewport(game);
 
     float aspect_ratio = float(game->window_size.x) / float(game->window_size.y);
-    glm::mat4 projection_mat = glm::perspective(45.0f, aspect_ratio, 0.1f, 300.0f);
+    glm::mat4 projection_mat = glm::perspective(45.0f, aspect_ratio, 0.1f, 100.0f);
 
     glMatrixMode(GL_PROJECTION);
     glLoadMatrixf(glm::value_ptr(projection_mat));
@@ -28,9 +28,7 @@ void draw_context(Game *game)
     
     draw_sky();
 
-    draw_terrain();
-
-    draw_highway();
+    draw_ground(game);
 
     draw_opponents();
 
@@ -118,6 +116,30 @@ void draw_sky()
 
 }
 
+void draw_ground(Game *game)
+{
+    if(game->terrain_cord.z < 100.0f)
+        game->terrain_cord.z += game->velocity; 
+    else
+        game->terrain_cord.z = 0.0f;
+
+    glTranslatef(
+        game->terrain_cord.x,
+        game->terrain_cord.y,
+        game->terrain_cord.z
+    );
+
+    // Draw the ground objects
+    draw_terrain();
+
+    draw_highway();
+
+    glTranslatef(
+        game->terrain_cord.x,
+        game->terrain_cord.y,
+        -(game->terrain_cord.z)
+    );
+}
 
 void draw_terrain()
 {

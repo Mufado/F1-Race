@@ -59,12 +59,16 @@ void movement_handler(Game *game, sf::Keyboard::Key key)
     switch (key)
     {
         case sf::Keyboard::W:
+            if(game->velocity < 1.5f)
+                game->velocity += game->aceleration;
             break;
         case sf::Keyboard::A:
             if(game->main_car.global_position.x  - CAR_SIDE_MOV > -(HIGHWAY_LIMIT))
                 game->main_car.global_position.x -= CAR_SIDE_MOV;
             break;
         case sf::Keyboard::S:
+            if(game->velocity > 0.0f)
+                game->velocity -= game->aceleration;
             break;
         case sf::Keyboard::D:
             if(game->main_car.global_position.x + CAR_SIDE_MOV < HIGHWAY_LIMIT)
