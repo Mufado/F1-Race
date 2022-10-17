@@ -59,7 +59,7 @@ void movement_handler(Game *game, sf::Keyboard::Key key)
     switch (key)
     {
         case sf::Keyboard::W:
-            if(game->velocity < 1.60f)
+            if(game->velocity < 1.8f)
                 game->velocity += CAR_ACELERATION;
             
             game->clock.restart();
@@ -69,8 +69,8 @@ void movement_handler(Game *game, sf::Keyboard::Key key)
                 game->main_car.global_position.x -= CAR_SIDE_MOV;
             break;
         case sf::Keyboard::S:
-            if(game->velocity > 0.0f)
-                game->velocity -= CAR_ACELERATION;
+            if(game->velocity - CAR_SLOWDOWN > 0.0f)
+                game->velocity -= CAR_SLOWDOWN;
 
             game->clock.restart();
             break;
@@ -110,24 +110,24 @@ void debug_handler(Game *game, sf::Keyboard::Key key)
                 game->rotate_angule -= CAM_ROTATE_ANG;
                 break;
             case sf::Keyboard::Up:
-                game->camera.eye.z--;
+                game->camera.eye.z -= CAM_MOVMENT;
                 break;
             case sf::Keyboard::Down:
-                game->camera.eye.z++;
+                game->camera.eye.z += CAM_MOVMENT;
                 break;
             case sf::Keyboard::Right:
-                game->camera.eye.x++;
+                game->camera.eye.x += CAM_MOVMENT;
                 break;
             case sf::Keyboard::Left:
-                game->camera.eye.x--;
+                game->camera.eye.x -= CAM_MOVMENT;
                 break;
             case sf::Keyboard::LShift:
             case sf::Keyboard::RShift:
-                game->camera.eye.y++;
+                game->camera.eye.y += CAM_MOVMENT;
                 break;
             case sf::Keyboard::LControl:
             case sf::Keyboard::RControl:
-                game->camera.eye.y--;
+                game->camera.eye.y -= CAM_MOVMENT;
                 break;
             case sf::Keyboard::X:
                 axis_size_controller(game);

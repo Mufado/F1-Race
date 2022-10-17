@@ -15,7 +15,7 @@ void perspective_init(Game *game)
     load_viewport(game);
 
     float aspect_ratio = float(game->window_size.x) / float(game->window_size.y);
-    glm::mat4 projection_mat = glm::perspective(45.0f, aspect_ratio, 0.1f, 100.0f);
+    glm::mat4 projection_mat = glm::perspective(45.0f, aspect_ratio, 0.1f, VIEW_LIMIT);
 
     glMatrixMode(GL_PROJECTION);
     glLoadMatrixf(glm::value_ptr(projection_mat));
@@ -83,17 +83,19 @@ void camera_sight(Camera *camera)
     //Sight color
     glColor3f(SIGHT_COLOR.x, SIGHT_COLOR.y, SIGHT_COLOR.z);
 
-    //Vertical strip
     glBegin(GL_LINES);
+        //Vertical line
         glVertex3f(camera->at.x, camera->at.y + SIGHT_SIZE, camera->at.z);
         glVertex3f(camera->at.x, camera->at.y - SIGHT_SIZE, camera->at.z);
-    glEnd();
 
-    //Horizontal strip
-    glBegin(GL_LINES);
+        //Horizontal line
         glVertex3f(camera->at.x - SIGHT_SIZE, camera->at.y, camera->at.z);
         glVertex3f(camera->at.x + SIGHT_SIZE, camera->at.y, camera->at.z);
+
+        glVertex3f(camera->at.x, camera->at.y, camera->at.z + SIGHT_SIZE);
+        glVertex3f(camera->at.x, camera->at.y, camera->at.z - SIGHT_SIZE);
     glEnd();
+
 }
 
 void draw_debug_context(Game *game)
@@ -118,7 +120,7 @@ void draw_sky()
 
 void draw_ground(Game *game)
 {
-    if(game->terrain_cord.z < 50.0f)
+    if(game->terrain_cord.z < TERRAIN_MOVMENT_LIMIT)
         game->terrain_cord.z += game->velocity; 
     else
         game->terrain_cord.z = 0.0f;
