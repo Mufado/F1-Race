@@ -27,7 +27,6 @@ typedef struct
     glm::fvec3 terrain_cord = glm::fvec3(0.0f, 0.0f, 0.0f);
 
     float velocity = 0.0;
-    float aceleration = 0.3;
 
     //Camera angle
     double rotate_angule = 0.0;

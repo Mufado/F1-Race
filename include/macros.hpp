@@ -37,3 +37,5 @@
 #define DEFAULT_CAR_POS glm::fvec3(0.0f, 0.5f, -6.0f)
 #define CAR_SIDE_MOV 0.2f
 #define HIGHWAY_LIMIT (HIGHWAY_WIDTH - 0.5f)
+#define CAR_ACELERATION 0.05
+#define CAR_SLOWDOWN 0.05

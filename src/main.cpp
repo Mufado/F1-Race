@@ -24,6 +24,19 @@ int main()
     //Render loop
     while (main_game.window->isOpen())
     {
+        sf::Time time = main_game.clock.getElapsedTime();
+
+        if(time.asSeconds() > 0.5f && main_game.velocity > 0.0f)
+        {
+            if(main_game.velocity - CAR_SLOWDOWN > 0)
+                main_game.velocity -= CAR_SLOWDOWN;
+            else    
+                main_game.velocity = 0;
+
+            main_game.clock.restart();
+        }
+
+        std::cout << main_game.velocity << std::endl;
         //Look for events...
         sf::Event event;
         while (main_game.window->pollEvent(event))

@@ -118,7 +118,7 @@ void draw_sky()
 
 void draw_ground(Game *game)
 {
-    if(game->terrain_cord.z < 100.0f)
+    if(game->terrain_cord.z < 50.0f)
         game->terrain_cord.z += game->velocity; 
     else
         game->terrain_cord.z = 0.0f;
