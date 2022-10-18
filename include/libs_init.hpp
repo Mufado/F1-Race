@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <ctime>
 
 #include <SFML/Window/Window.hpp>
 #include <SFML/Window/VideoMode.hpp>

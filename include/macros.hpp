@@ -47,3 +47,9 @@
 
 #define HIGHWAY_LIMIT (HIGHWAY_WIDTH - 0.5f)
 #define TERRAIN_MOVMENT_LIMIT (TERRAIN_SIZE - VIEW_LIMIT)
+
+//Car Opponents Macros
+#define OPPONENTS_NUMBER 1
+#define OPPONENTS_HIGHWAY_SIDE 1.5f
+
+#define DEFAULT_OPPONENT_POS glm::fvec3(0.0f, 0.01f, -6.0f)

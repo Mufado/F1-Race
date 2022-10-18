@@ -24,9 +24,12 @@ int main()
     //Render loop
     while (main_game.window->isOpen())
     {
-        sf::Time time = main_game.clock.getElapsedTime();
+        // This srand() is for the pseudo-random generator
+        std::srand(std::time(NULL)); // It's in the while statement to reseed the srand() every time !
 
-        if(time.asSeconds() > 0.5f && main_game.velocity > 0.0f)
+        sf::Time response_time = main_game.clock.getElapsedTime();
+
+        if(response_time.asSeconds() > 0.5f && main_game.velocity > 0.0f)
         {
             if(main_game.velocity - CAR_SLOWDOWN > 0)
                 main_game.velocity -= CAR_SLOWDOWN;

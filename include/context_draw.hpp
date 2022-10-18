@@ -20,6 +20,6 @@ void draw_highway();
 
 void draw_strips();
 
-void draw_opponents();
+void draw_opponents(Game *);
 
 void draw_car(Object);

@@ -23,6 +23,8 @@ typedef struct
         // .local_position  = DEFAULT_LOCAL_POS
     };
 
+    std::vector<Object> opponents;
+
     //Controls physics of world movements
     glm::fvec3 terrain_cord = glm::fvec3(0.0f, 0.0f, 0.0f);
 

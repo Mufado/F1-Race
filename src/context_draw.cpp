@@ -30,7 +30,7 @@ void draw_context(Game *game)
 
     draw_ground(game);
 
-    draw_opponents();
+    draw_opponents(game);
 
     draw_car(game->main_car);
 
@@ -222,9 +222,34 @@ void draw_strips()
     }
 }
 
-void draw_opponents() 
+void draw_opponents(Game *game) 
 {
+    for(Object opponent : game->opponents)
+    {
+        glColor3f(opponent.color.x, opponent.color.y, opponent.color.z);
+        glBegin(GL_TRIANGLES);
+        for(glm::fvec3 vertex : opponent.obj_meshe.vertex_list)
+            glVertex3f(
+                vertex.x + opponent.global_position.x,
+                vertex.y + opponent.global_position.y, 
+                vertex.z + opponent.global_position.z
+            );
+        glEnd();
+    
+        glPolygonMode (GL_FRONT_AND_BACK, GL_LINE);
+    
+        glColor3f(0.0f, 0.0f, 0.0f);
+        glBegin(GL_TRIANGLES);
+            for(glm::fvec3 vertex : opponent.obj_meshe.vertex_list)
+                glVertex3f(
+                    vertex.x + opponent.global_position.x,
+                    vertex.y + opponent.global_position.y, 
+                    vertex.z + opponent.global_position.z
+                );
+        glEnd();
 
+        glPolygonMode (GL_FRONT_AND_BACK, GL_FILL);
+    }
 }
 
 void draw_car(Object car)
