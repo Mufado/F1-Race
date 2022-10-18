@@ -224,6 +224,13 @@ void draw_strips()
 
 void draw_opponents(Game *game) 
 {
+    for(int32_t i = 0; i < OPPONENTS_NUMBER; i++)
+    {
+        game->opponents[i].global_position.z -= (OPPONENTS_VELOCITY - game->velocity);
+
+        // If go to the end, restart the Z position
+    }
+
     for(Object opponent : game->opponents)
     {
         glColor3f(opponent.color.x, opponent.color.y, opponent.color.z);

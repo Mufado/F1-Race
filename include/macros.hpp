@@ -51,5 +51,6 @@
 //Car Opponents Macros
 #define OPPONENTS_NUMBER 1
 #define OPPONENTS_HIGHWAY_SIDE 1.5f
+#define OPPONENTS_VELOCITY 1.0f
 
 #define DEFAULT_OPPONENT_POS glm::fvec3(0.0f, 0.01f, -6.0f)
