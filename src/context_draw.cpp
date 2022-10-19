@@ -6,7 +6,11 @@ void load_viewport(Game *game)
 
     glViewport(0, 0, game->window_size.x, game->window_size.y);
 
-    glClearColor(game->background_color.x, game->background_color.y, game->background_color.z, game->background_color.w);
+    glClearColor((
+        game->background_color.x / 255.f),
+        game->background_color.y / 255.f,
+        game->background_color.z / 255.f,
+        game->background_color.w / 255.f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 

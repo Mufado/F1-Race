@@ -10,7 +10,7 @@
 #define DEFAULT_LOCAL_POS glm::fvec3(0.0f, 0.0f, 0.0f)
 
 //Game Module Macros
-#define DEFAULT_COLOR glm::fvec4(0.53f, 0.81f, 0.92f, 1.0f)
+#define DEFAULT_COLOR glm::fvec4(74.0f, 158.0f, 212.0f, 1.0f)
 #define DEBUG_COLOR   glm::fvec4(0.3f, 0.3f, 0.3f, 1.0f)
 
 //Draw Module Macros
