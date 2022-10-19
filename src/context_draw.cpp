@@ -228,7 +228,11 @@ void draw_opponents(Game *game)
     {
         game->opponents[i].global_position.z -= (OPPONENTS_VELOCITY - game->velocity);
 
-        // If go to the end, restart the Z position
+        if(OPPONENTS_NUMBER > 1 && game->opponents[i].global_position.z <= -(OPPONENTS_OVERAKING_LIMIT))
+        {
+            game->opponents[i].global_position.z = OPPONENTS_DISTANCE;
+            game->opponents[i].global_position.x = ((std::rand() % 2) == TRUE) ? (OPPONENTS_HIGHWAY_SIDE) : -(OPPONENTS_HIGHWAY_SIDE);
+        }
     }
 
     for(Object opponent : game->opponents)

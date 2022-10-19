@@ -39,7 +39,7 @@ int main()
             main_game.clock.restart();
         }
 
-        std::cout << main_game.velocity << std::endl;
+        
         //Look for events...
         sf::Event event;
         while (main_game.window->pollEvent(event))

@@ -26,6 +26,9 @@ void load_objects(Game *game)
 
         new_oponent.obj_meshe.vertex_list = game->main_car.obj_meshe.vertex_list;
         new_oponent.global_position = DEFAULT_OPPONENT_POS;
+        
+        if(game->opponents.size() > 0) // Has opponents in the opponents list
+            new_oponent.global_position.z += (game->opponents[game->opponents.size() - 1].global_position.z + OPPONENTS_DISTANCE);
 
         new_oponent.global_position.x = ((std::rand() % 2) == TRUE) ? (OPPONENTS_HIGHWAY_SIDE) : -(OPPONENTS_HIGHWAY_SIDE);
         new_oponent.color = glm::fvec3
