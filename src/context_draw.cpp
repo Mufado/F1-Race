@@ -25,8 +25,6 @@ void draw_context(Game *game)
 {
     //Set default line width
     glLineWidth(5.0f);
-    
-    draw_sky();
 
     draw_ground(game);
 
@@ -111,11 +109,6 @@ void draw_debug_context(Game *game)
         //Return depth function to its default value
         glDepthFunc(GL_LESS);
     }
-}
-
-void draw_sky()
-{
-
 }
 
 void draw_ground(Game *game)

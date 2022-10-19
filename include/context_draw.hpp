@@ -10,8 +10,6 @@ void draw_context(Game *);
 
 void draw_debug_context(Game *);
 
-void draw_sky();
-
 void draw_ground(Game *);
 
 void draw_terrain();
