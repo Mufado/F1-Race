@@ -10,8 +10,8 @@
 #define DEFAULT_LOCAL_POS glm::fvec3(0.0f, 0.0f, 0.0f)
 
 //Game Module Macros
-#define DEFAULT_COLOR glm::fvec4(74.0f, 158.0f, 212.0f, 1.0f)
-#define DEBUG_COLOR   glm::fvec4(0.3f, 0.3f, 0.3f, 1.0f)
+#define DEFAULT_COLOR glm::fvec4(74.0f, 158.0f, 212.0f, 1.0f) // Day: 74, 158, 212, Afternon: 158, 84, 19, Night: 1, 7, 20
+#define DEBUG_COLOR   glm::fvec4(76.5f, 76.5f, 76.5f, 1.0f)
 
 //Draw Module Macros
 #define TERRAIN_SIZE  1000.0f
