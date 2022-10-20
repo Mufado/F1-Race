@@ -62,7 +62,7 @@ void movement_handler(Game *game, sf::Keyboard::Key key)
             if(game->velocity < 1.8f)
                 game->velocity += CAR_ACELERATION;
             
-            game->clock.restart();
+            game->response_clock.restart();
             break;
         case sf::Keyboard::A:
             if(game->main_car.global_position.x  - CAR_SIDE_MOV > -(HIGHWAY_LIMIT))
@@ -72,7 +72,7 @@ void movement_handler(Game *game, sf::Keyboard::Key key)
             if(game->velocity - CAR_SLOWDOWN > 0.0f)
                 game->velocity -= CAR_SLOWDOWN;
 
-            game->clock.restart();
+            game->response_clock.restart();
             break;
         case sf::Keyboard::D:
             if(game->main_car.global_position.x + CAR_SIDE_MOV < HIGHWAY_LIMIT)
@@ -139,7 +139,7 @@ void debug_handler(Game *game, sf::Keyboard::Key key)
     }
     else
     {
-        game->background_color = DEFAULT_COLOR;
+        game->background_color = game->memorized_color;
         game->rotate_angule = 0.0f;
         start_camera(&game->camera);
     }

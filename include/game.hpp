@@ -6,7 +6,8 @@
 typedef struct 
 {
     //Measuring timing to help in game physics
-    sf::Clock clock;
+    sf::Clock response_clock;
+    sf::Clock game_clock;
 
     Camera camera;
 
@@ -15,6 +16,7 @@ typedef struct
     sf::ContextSettings window_settings;
 
     glm::fvec4 background_color = DEFAULT_COLOR;
+    glm::fvec4 memorized_color; 
 
     // Scenario Object's
     Object main_car = 
@@ -33,10 +35,9 @@ typedef struct
     //Camera angle
     double rotate_angule = 0.0;
 
-    boolean fullscreen   = false;
-    boolean debug_mode   = false;
-    boolean degub_tools  = false;
-
+    boolean fullscreen     = false;
+    boolean debug_mode     = false;
+    boolean degub_tools    = false;
 } Game;
 
 void physics_handler(Game *);

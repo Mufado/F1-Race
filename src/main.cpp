@@ -12,6 +12,8 @@ int main()
 {
     /* Comments written to explain less intuitive functions and line codes */
     Game main_game;
+    int32_t sky_gradiant = 0;
+    int32_t day_time = 0;
 
     //Load setting creating windows
     load_window_setting(&main_game);
@@ -27,7 +29,8 @@ int main()
         // This srand() is for the pseudo-random generator
         std::srand(std::time(NULL)); // It's in the while statement to reseed the srand() every time !
 
-        sf::Time response_time = main_game.clock.getElapsedTime();
+        sf::Time response_time = main_game.response_clock.getElapsedTime();
+        sf::Time game_time     = main_game.game_clock.getElapsedTime();
 
         if(response_time.asSeconds() > 0.5f && main_game.velocity > 0.0f)
         {
@@ -36,10 +39,43 @@ int main()
             else    
                 main_game.velocity = 0;
 
-            main_game.clock.restart();
+            main_game.response_clock.restart();
         }
 
-        
+        if(game_time.asSeconds() > 1.0f && !main_game.debug_mode && sky_gradiant < SKY_GRADIENT)
+        {
+            if(day_time > 2)
+                day_time = 0;
+
+            switch (day_time)
+            {
+                case 0: //Day -> Afternoon
+                    main_game.background_color.x += 4.20f;
+                    main_game.background_color.y += 0.30f;
+                    main_game.background_color.z -= 2.37f;
+                    break;
+                case 1: //Afternoon -> Night
+                    main_game.background_color.x -= 6.02f;
+                    main_game.background_color.y -= 4.07f;
+                    main_game.background_color.z -= 2.42f;
+                    break;
+                case 2: //Night -> Day
+                    main_game.background_color.x += 1.82f;
+                    main_game.background_color.y += 3.77f;
+                    main_game.background_color.z += 4.80f;
+                    break;
+            }
+
+            main_game.memorized_color = main_game.background_color;            
+            main_game.game_clock.restart();
+            sky_gradiant++;
+        }
+        else if(sky_gradiant == SKY_GRADIENT)
+        {
+            day_time++;
+            sky_gradiant = 0;
+        }
+
         //Look for events...
         sf::Event event;
         while (main_game.window->pollEvent(event))
