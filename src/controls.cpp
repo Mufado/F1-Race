@@ -31,11 +31,12 @@ void camera_movement(Game *game)
 {
     if(!game->debug_mode)
     {
+        //Camera eyes will always be in the back of the car
         game->camera.eye.x = game->main_car.global_position.x;
 
         game->camera.at  = glm::fvec3(
-            (game->camera.eye.x), 
-            (game->camera.eye.y), 
+            (game->camera.eye.x),
+            (game->camera.eye.y),
             (game->camera.eye.z) - CAM_VIEW.x
         );
     }
@@ -46,8 +47,8 @@ void camera_movement(Game *game)
         else
         {
             game->camera.at  = glm::fvec3(
-                (game->camera.eye.x), 
-                (game->camera.eye.y), 
+                (game->camera.eye.x),
+                (game->camera.eye.y),
                 (game->camera.eye.z) - CAM_VIEW.x
             );
         }

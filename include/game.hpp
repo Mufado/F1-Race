@@ -21,8 +21,7 @@ typedef struct
     // Scenario Object's
     Object main_car = 
     {
-        .global_position = DEFAULT_CAR_POS,
-        // .local_position  = DEFAULT_LOCAL_POS
+        .global_position = DEFAULT_CAR_POS
     };
 
     std::vector<Object> opponents;
@@ -39,8 +38,6 @@ typedef struct
     boolean debug_mode     = false;
     boolean degub_tools    = false;
 } Game;
-
-void physics_handler(Game *);
 
 void load_window_setting(Game *);
 

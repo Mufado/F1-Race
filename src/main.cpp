@@ -1,6 +1,8 @@
+//Luis Gustavo Girão Cardial - 471737
 #include <game_init.hpp>
 
-/*
+/* 
+ * Comments written to explain less intuitive functions and line codes.
  * Basic remake of F1 Race game (1984) by a computer graphics begginer. Made in classic Open GL.
  * Program behavior:
  * - Draw a highway and objects (opponents and other stuf)
@@ -10,8 +12,9 @@
 
 int main()
 {
-    /* Comments written to explain less intuitive functions and line codes */
     Game main_game;
+
+    //Variables to controll day time state
     int32_t sky_gradiant = 0;
     int32_t day_time = 0;
 
@@ -26,26 +29,36 @@ int main()
     //Render loop
     while (main_game.window->isOpen())
     {
-        // This srand() is for the pseudo-random generator
-        std::srand(std::time(NULL)); // It's in the while statement to reseed the srand() every time !
+        //Reset the pseudo-random generator
+        std::srand(std::time(NULL));
 
+        //Timer used for car slow down
         sf::Time response_time = main_game.response_clock.getElapsedTime();
+        //Timer used to controll sky coloration
         sf::Time game_time     = main_game.game_clock.getElapsedTime();
 
+        //When W key released for 0.5 seconds, main car starts to slow down
         if(response_time.asSeconds() > 0.5f && main_game.velocity > 0.0f)
         {
             if(main_game.velocity - CAR_SLOWDOWN > 0)
+            {
                 main_game.velocity -= CAR_SLOWDOWN;
-            else    
+            }
+            else
+            {
                 main_game.velocity = 0;
+            }
 
             main_game.response_clock.restart();
         }
 
+        //Every 1 second the sky color changes until starts next day phase (day_time)
         if(game_time.asSeconds() > 1.0f && !main_game.debug_mode && sky_gradiant < SKY_GRADIENT)
         {
             if(day_time > 2)
+            {
                 day_time = 0;
+            }
 
             switch (day_time)
             {
@@ -66,7 +79,7 @@ int main()
                     break;
             }
 
-            main_game.memorized_color = main_game.background_color;            
+            main_game.memorized_color = main_game.background_color;
             main_game.game_clock.restart();
             sky_gradiant++;
         }
@@ -97,10 +110,10 @@ int main()
         //Configure the camera position
         camera_movement(&main_game);
 
-        //Set the camera in the world
+        //Set the camera with glm's lookAt function 
         load_camera(&main_game.camera);
 
-        //Render whatever we want in the context
+        //Main function that renders the game objects
         draw_context(&main_game);
 
         main_game.window->display();

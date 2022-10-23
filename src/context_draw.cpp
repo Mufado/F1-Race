@@ -17,8 +17,10 @@ void load_viewport(Game *game)
 void perspective_init(Game *game)
 {
     load_viewport(game);
-
+    
+    //Calculates the aspect ratio to resize the image without streching the image
     float aspect_ratio = float(game->window_size.x) / float(game->window_size.y);
+    //Perspective frustum
     glm::mat4 projection_mat = glm::perspective(45.0f, aspect_ratio, 0.1f, VIEW_LIMIT);
 
     glMatrixMode(GL_PROJECTION);
@@ -37,7 +39,9 @@ void draw_context(Game *game)
     draw_car(game->main_car);
 
     if (game->debug_mode)
+    {
         draw_debug_context(game);
+    }
 }
 
 void global_axis()
@@ -117,22 +121,26 @@ void draw_debug_context(Game *game)
 
 void draw_ground(Game *game)
 {
+    //Translate the ground until a certain limit,then resets the translation when surpasses it
     if(game->terrain_cord.z < TERRAIN_MOVMENT_LIMIT)
         game->terrain_cord.z += game->velocity; 
     else
         game->terrain_cord.z = 0.0f;
 
+    //Apllying the translation to the ground element
     glTranslatef(
         game->terrain_cord.x,
         game->terrain_cord.y,
         game->terrain_cord.z
     );
 
-    // Draw the ground objects
+    //Draw the green ground
     draw_terrain();
 
+    //Draw the grey highway and all the strips
     draw_highway();
 
+    //Aplying the translation for the cars 
     glTranslatef(
         game->terrain_cord.x,
         game->terrain_cord.y,
@@ -150,12 +158,6 @@ void draw_terrain()
         glVertex3f( TERRAIN_SIZE, 0.0f, 0.0f);
         glVertex3f( TERRAIN_SIZE, 0.0f, -TERRAIN_SIZE);
         glVertex3f(-TERRAIN_SIZE, 0.0f, -TERRAIN_SIZE);
-    glEnd();
-
-    glColor3f(0.6f, 0.6f, 0.6f);
-    glBegin(GL_LINES);
-        glVertex3f(-TERRAIN_SIZE, 0.01f, -TERRAIN_SIZE);
-        glVertex3f( TERRAIN_SIZE, 0.01f, -TERRAIN_SIZE);
     glEnd();
 }
 
@@ -198,6 +200,7 @@ void draw_strips()
         glEnd();    
     }
 
+    //Center Strips
     glColor3f(0.9f, 0.9f, 0.9f);
     for(float center_strip_cord = 0.0; (center_strip_cord + STRIPS_LENGHT) < TERRAIN_SIZE; center_strip_cord += STRIPS_LENGHT)
     {
@@ -223,15 +226,18 @@ void draw_opponents(Game *game)
 {
     for(int32_t i = 0; i < OPPONENTS_NUMBER; i++)
     {
+        //Draw the opponent car based on their veloity 
         game->opponents[i].global_position.z -= (OPPONENTS_VELOCITY - game->velocity);
 
-        if(OPPONENTS_NUMBER > 1 && game->opponents[i].global_position.z <= -(OPPONENTS_OVERAKING_LIMIT))
+        //When an oponnent reachs an certain limit, it respawn in the origin position
+        if(OPPONENTS_NUMBER > 1 && game->opponents[i].global_position.z <= -(OPPONENTS_OVERPASS_LIMIT))
         {
             game->opponents[i].global_position.z = OPPONENTS_DISTANCE;
             game->opponents[i].global_position.x = ((std::rand() % 2) == TRUE) ? (OPPONENTS_HIGHWAY_SIDE) : -(OPPONENTS_HIGHWAY_SIDE);
         }
     }
 
+    //Draw all the opponents
     for(Object opponent : game->opponents)
     {
         glColor3f(opponent.color.x, opponent.color.y, opponent.color.z);
